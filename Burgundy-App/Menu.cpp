@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Menu.h"
 
 Memento* Menu::createMemento() {
 	// TODO - implement Menu::createMemento

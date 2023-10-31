@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\FriesChef.h"
 
 Chef* FriesChef::getNext() {
 	// TODO - implement FriesChef::getNext

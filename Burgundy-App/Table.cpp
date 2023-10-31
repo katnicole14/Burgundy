@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Table.h"
 
 void Table::changeTo() {
 	// TODO - implement Table::changeTo

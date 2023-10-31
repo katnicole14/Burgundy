@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Dirty.h"
 
 void Dirty::changeTo() {
 	// TODO - implement Dirty::changeTo

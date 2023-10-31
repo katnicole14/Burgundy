@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\ConcreteBuilder.h"
 
 Table* ConcreteBuilder::getResult() {
 	// TODO - implement ConcreteBuilder::getResult

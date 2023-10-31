@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Iterator.h"
 
 Customer* Iterator::first() {
 	// TODO - implement Iterator::first

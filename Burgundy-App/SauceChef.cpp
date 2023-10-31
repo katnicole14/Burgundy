@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\SauceChef.h"
 
 Chef* SauceChef::getNext() {
 	// TODO - implement SauceChef::getNext

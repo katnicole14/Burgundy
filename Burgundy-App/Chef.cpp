@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Chef.h"
 
 Chef* Chef::getNext() {
 	return this->next;

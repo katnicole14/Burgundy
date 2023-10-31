@@ -1,4 +1,3 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Restaurant.h"
 
 void Restaurant::attach(FloorStaff staffMember) {
 	// TODO - implement Restaurant::attach
