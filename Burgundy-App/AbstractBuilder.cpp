@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\AbstractBuilder.h"
+#include "AbstractBuilder.h"
 
 void AbstractBuilder::buildPart() {
 	// TODO - implement AbstractBuilder::buildPart

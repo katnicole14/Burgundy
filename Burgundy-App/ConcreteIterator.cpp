@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\ConcreteIterator.h"
+#include "ConcreteIterator.h"
 
 Customer* ConcreteIterator::first() {
 	// TODO - implement ConcreteIterator::first

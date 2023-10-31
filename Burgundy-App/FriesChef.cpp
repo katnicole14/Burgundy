@@ -1,16 +1,15 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\FriesChef.h"
+#include "FriesChef.h"
 
 Chef* FriesChef::getNext() {
-	// TODO - implement FriesChef::getNext
-	throw "Not yet implemented";
+	return Chef::getNext();
 }
 
 void FriesChef::setNext(Chef* next) {
-	// TODO - implement FriesChef::setNext
-	throw "Not yet implemented";
+	
+	Chef::setNext(next);
 }
 
 void FriesChef::addOrderItem(string item) {
-	// TODO - implement FriesChef::addOrderItem
-	throw "Not yet implemented";
+	cout<<"adding fries"<<endl;
+Chef::addOrderItem(item);
 }

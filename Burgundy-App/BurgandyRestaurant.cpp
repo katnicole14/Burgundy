@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\BurgandyRestaurant.h"
+#include "BurgandyRestaurant.h"
 
 Table* BurgandyRestaurant::getState() {
 	// TODO - implement BurgandyRestaurant::getState

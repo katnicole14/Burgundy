@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Table.h"
+#include "Table.h"
 
 void Table::changeTo() {
 	// TODO - implement Table::changeTo
@@ -29,25 +29,4 @@ Iterator* Table::createIterator() {
 Table* Table::getClone() {
 	// TODO - implement Table::getClone
 	throw "Not yet implemented";
-}
-
-tableState* Table::getState() {
-	return this->state;
-}
-
-void Table::setState(tableState* state) {
-	this->state = state;
-}
-
-void Table::changeTo(Table t) {
-	// TODO - implement Table::changeTo
-	throw "Not yet implemented";
-}
-
-Customer* Table::getCustomer() {
-	return this->customer;
-}
-
-void Table::setCustomer(Customer* customer) {
-	this->customer = customer;
 }

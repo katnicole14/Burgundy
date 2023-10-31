@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Waiter.h"
+#include "Waiter.h"
 
 void Waiter::observeTable() {
 	// TODO - implement Waiter::observeTable

@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\SplitBlill.h"
+#include "SplitBlill.h"
 
 void SplitBlill::pay() {
 	// TODO - implement SplitBlill::pay

@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Memento.h"
+#include "Memento.h"
 
 vector<Ingredient*> Memento::getState() {
 	// TODO - implement Memento::getState

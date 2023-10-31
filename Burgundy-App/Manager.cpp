@@ -1,4 +1,4 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Manager.h"
+#include "Manager.h"
 
 void Manager::observeTable() {
 	// TODO - implement Manager::observeTable

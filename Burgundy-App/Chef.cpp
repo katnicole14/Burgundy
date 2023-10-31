@@ -1,5 +1,8 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Chef.h"
+#include "Chef.h"
+Chef::Chef(Chef*next):next(next)
+{
 
+}
 Chef* Chef::getNext() {
 	return this->next;
 }
@@ -9,6 +12,8 @@ void Chef::setNext(Chef* next) {
 }
 
 void Chef::addOrderItem(string item) {
-	// TODO - implement Chef::addOrderItem
-	throw "Not yet implemented";
+	if(next)
+	{
+		next->addOrderItem(item);
+	}
 }
