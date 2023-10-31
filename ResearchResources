@@ -1,0 +1,9 @@
+The following are links to sites that explain the tools and techniques we aim to incorporate into our project
+
+GoogleTest
+https://google.github.io/googletest/quickstart-cmake.html
+GoogleTest is a tools used for testing cpp code. 
+
+Gitflow tutorial
+https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+Gitflow is the philosophy the Burgundy team aims to use in managing the version control and collaboration in the git envrionment
