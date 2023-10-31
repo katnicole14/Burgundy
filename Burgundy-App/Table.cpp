@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+#include "Table.h"
+>>>>>>> 6fc23565e596f86b45f8e55350918a5452e830d1
 
 void Table::changeTo() {
 	// TODO - implement Table::changeTo
@@ -28,25 +32,4 @@ Iterator* Table::createIterator() {
 Table* Table::getClone() {
 	// TODO - implement Table::getClone
 	throw "Not yet implemented";
-}
-
-tableState* Table::getState() {
-	return this->state;
-}
-
-void Table::setState(tableState* state) {
-	this->state = state;
-}
-
-void Table::changeTo(Table t) {
-	// TODO - implement Table::changeTo
-	throw "Not yet implemented";
-}
-
-Customer* Table::getCustomer() {
-	return this->customer;
-}
-
-void Table::setCustomer(Customer* customer) {
-	this->customer = customer;
 }

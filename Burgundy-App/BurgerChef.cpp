@@ -1,16 +1,25 @@
+<<<<<<< HEAD
 
+=======
+#include "BurgerChef.h"
+>>>>>>> 6fc23565e596f86b45f8e55350918a5452e830d1
 
 Chef* BurgerChef::getNext() {
-	// TODO - implement BurgerChef::getNext
-	throw "Not yet implemented";
+	return Chef::getNext();
 }
 
 void BurgerChef::setNext(Chef* next) {
-	// TODO - implement BurgerChef::setNext
-	throw "Not yet implemented";
+	
+	Chef::setNext(next);
 }
 
 void BurgerChef::addOrderItem(string item) {
-	// TODO - implement BurgerChef::addOrderItem
-	throw "Not yet implemented";
+	cout<<"Building Burger"<<endl;
+	//create a burger given ingredients
+	BurgerIngred *burger;
+	burger =new Patty();
+	burger->addIngredient(new Lettuce());
+
+
+	Chef::addOrderItem(item);
 }

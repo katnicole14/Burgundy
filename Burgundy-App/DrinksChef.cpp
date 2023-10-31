@@ -1,15 +1,18 @@
+<<<<<<< HEAD
+=======
+#include "DrinksChef.h"
+>>>>>>> 6fc23565e596f86b45f8e55350918a5452e830d1
 
 Chef* DrinksChef::getNext() {
-	// TODO - implement DrinksChef::getNext
-	throw "Not yet implemented";
+	return Chef::getNext();
 }
 
 void DrinksChef::setNext(Chef* next) {
-	// TODO - implement DrinksChef::setNext
-	throw "Not yet implemented";
+	
+	Chef::setNext(next);
 }
 
 void DrinksChef::addOrderItem(string item) {
-	// TODO - implement DrinksChef::addOrderItem
-	throw "Not yet implemented";
+cout<<"adding drink"<<endl;
+ Chef::addOrderItem(item);
 }
