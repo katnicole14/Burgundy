@@ -1,5 +1,5 @@
 
-
+#include "BillPaid.h"
 void BillPaid::changeTo() {
 	// TODO - implement BillPaid::changeTo
 	throw "Not yet implemented";
