@@ -2,7 +2,10 @@ The following are links to sites that explain the tools and techniques we aim to
 
 GoogleTest
 https://google.github.io/googletest/quickstart-cmake.html
-GoogleTest is a tools used for testing cpp code. 
+The above link will take you to a page that will help you set up googleTest
+
+https://google.github.io/googletest/primer.html
+This link will take you to a page that will introduce to you the basix of using googleTest
 
 Gitflow tutorial
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
