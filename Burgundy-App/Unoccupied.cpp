@@ -6,6 +6,6 @@ void Unoccupied:: changeTo(Table *c){
 
 }
 std::string Unoccupied:: getState(){
-	return "Occupied";
+	return "unoccupied";
 
 }

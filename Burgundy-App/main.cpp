@@ -10,7 +10,9 @@ int main(){
     //create a table 
    Table *table = new Table();
 
-   std::cout<< table->getState();
-
+    table->getState();
+   table->changeState();
+   table->changeState();
+table->changeState();
     return 0;
 }

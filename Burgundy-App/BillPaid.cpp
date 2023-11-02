@@ -1,11 +1,11 @@
 
 #include "BillPaid.h"
 #include "Dirty.h"
-void Dirty:: changeTo(Table *c){
+void BillPaid:: changeTo(Table *c){
 	c->setState(new Dirty());
 
 }
-std::string Dirty:: getState(){
+std::string BillPaid:: getState(){
 	return "BilledPaid";
 
 }
