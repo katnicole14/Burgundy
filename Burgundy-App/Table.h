@@ -1,14 +1,22 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-class Table : Colleague {
+#include <string>
+class TableState;
+
+class Table  { // add the inheritance ,removed for testing purposes
 
 private:
 	int tableID;
 	bool tableSatisfaction;
+	 TableState * state;
 
 public:
-	void changeTo();
+     Table();
+     void setState(TableState * state);
+	 std::string getState();
+    ~Table();
+	void changeState();
 
 	int getTableID();
 
@@ -18,7 +26,7 @@ public:
 
 	void setTableSatisfaction(bool tableSatisfaction);
 
-	Iterator* createIterator();
+	//Iterator* createIterator();
 
 	Table* getClone();
 };

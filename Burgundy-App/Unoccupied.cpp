@@ -1,6 +1,11 @@
 #include "Unoccupied.h"
 
-void Unoccupied::changeTo() {
-	// TODO - implement Unoccupied::changeTo
-	throw "Not yet implemented";
+#include "Occupied.h"
+void Unoccupied:: changeTo(Table *c){
+	c->setState(new Occupied());
+
+}
+std::string Unoccupied:: getState(){
+	return "unoccupied";
+
 }

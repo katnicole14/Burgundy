@@ -1,6 +1,6 @@
 #ifndef RESTAURANT_H
 #define RESTAURANT_H
-
+#include "FloorStaff.h"
 class Restaurant {
 
 private:
