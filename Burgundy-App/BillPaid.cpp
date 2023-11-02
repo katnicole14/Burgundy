@@ -1,10 +1,11 @@
 
 #include "BillPaid.h"
-void BillPaid::changeTo() {
-	// TODO - implement BillPaid::changeTo
-	throw "Not yet implemented";
-}
+#include "Dirty.h"
+void Dirty:: changeTo(Table *c){
+	c->setState(new Dirty());
 
-string BillPaid::getState() {
-	return this->state;
+}
+std::string Dirty:: getState(){
+	return "BilledPaid";
+
 }

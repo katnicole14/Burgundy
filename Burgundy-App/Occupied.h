@@ -1,11 +1,13 @@
 #ifndef OCCUPIED_H
 #define OCCUPIED_H
+#include "TableState.h"
 
-class Occupied : Table {
+class Table;
+class Occupied : public TableState {
 
-
-public:
-	void changeTo();
+  public :
+  virtual void changeTo(Table *c);
+  virtual std::string getState();
 };
 
 #endif

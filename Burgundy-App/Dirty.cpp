@@ -1,6 +1,11 @@
 #include "Dirty.h"
+#include "Unoccupied.h"
+void Dirty:: changeTo(Table *c){
+	
+	c->setState(new Unoccupied());
 
-void Dirty::changeTo() {
-	// TODO - implement Dirty::changeTo
-	throw "Not yet implemented";
+}
+std::string Dirty:: getState(){
+	return "dirty";
+
 }
