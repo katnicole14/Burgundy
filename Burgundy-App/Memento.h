@@ -1,14 +1,20 @@
-#ifndef MEMENTO_H
-#define MEMENTO_H
+#ifndef MEMENTO_O
+#define MEMENTO_O
 
-class Memento {
+#include "State.h"
+#include "Order.h"
 
+class State;
+class Order;
+
+class Memento{
 private:
-	vector<Ingredient*> order;
+	friend class Order;
+	State* state;
+	Memento(Drink**, Sauce**, Fries**, Burger**, int***, int, int);
 
-	vector<Ingredient*> getState();
-
-	void setState(vector<Ingredient*> menuState);
+public:
+	void printState();
 };
 
 #endif
