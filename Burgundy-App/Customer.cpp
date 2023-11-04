@@ -11,3 +11,10 @@ int Customer::getSeatNumber(){
 void Customer::assignSeatNumber(int number){
 	seatNumber = number;
 }
+void Customer:: setBill(int bill){
+ this->bill = bill;
+}
+
+int Customer ::getBill(){
+return bill;
+}

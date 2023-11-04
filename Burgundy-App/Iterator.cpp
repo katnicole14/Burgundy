@@ -1,7 +1,6 @@
 #include "Iterator.h"
 #include <stdexcept>
-// #include "Customer.h"
-// #include "Table.h"
+
 
 Iterator::Iterator(Table* table_){
 	table = table_;

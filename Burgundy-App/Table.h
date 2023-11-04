@@ -14,26 +14,27 @@ private:
 	int numSeated;
     int tableID;
 	bool tableSatisfaction;
-	 TableState * state;
+	TableState * state;
+	int totalBill;
 
 public:
 	Table(int);
 	Iterator* createIterator();
-    
 	void sitCustomer(Customer*);
+	int getBill();
+	void setBill();
 	Customer** getCustomers();
-
 	int getNumSeated();
-	  Table();
-     void setState(TableState * state);
-	 std::string getState();
+	Table();
+    void setState(TableState * state);
+	std::string getState();
     ~Table();
 	void changeState();
 	int getTableID();
 	void setTableID(int tableID);
 	bool getTableSatisfaction();
 	void setTableSatisfaction(bool tableSatisfaction);
-		Table* getClone();
+    Table* getClone();
 };
 
 #endif

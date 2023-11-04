@@ -23,6 +23,28 @@ Iterator* Table::createIterator(){
 	return new Iterator(this);
 }
 
+
+int Table:: getBill(){
+	this->setBill();
+ return totalBill;
+}
+void Table:: setBill(){
+	Iterator * iter = new Iterator(this);
+    int totalAmount = 0;
+ totalAmount = iter->first()->getBill();
+
+int i = 0;
+
+ while ( i < this->getNumSeated()- 1){
+
+  totalAmount += iter->next()->getBill();
+ }
+
+ this->totalBill = totalAmount;
+
+}
+
+
 void Table::sitCustomer(Customer* customer){
 	customers[customer->getSeatNumber()] = customer;
 	return;
