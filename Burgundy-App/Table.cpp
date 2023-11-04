@@ -1,57 +1,31 @@
 #include "Table.h"
-#include <iostream>
-#include "Occupied.h"
+// #include "Customer.h"
+// #include "Iterator.h"
 
+Table::Table(int numCustomers){
+	numSeated = numCustomers;
 
-Table::Table(){
-	std::cout <<"Table is now occupied"<<std::endl;
-	state = new Occupied();
+	customers = new Customer*[numSeated];
 
-}
-void Table:: setState(TableState * state_){
-std::cout << "Table state has changed from "<< state->getState() << " to " << state_->getState() << std::endl;
-delete state ;
-state = state_;
-
+	for(int i = 0; i < numSeated; i ++ ){
+		customers[i] = new Customer();
+		customers[i]->assignSeatNumber(i);
+	}
 }
 
-std::string Table:: getState(){
-return state->getState();
+Iterator* Table::createIterator(){
+	return new Iterator(this);
 }
 
-Table::~Table(){
-    delete state;
-	state = NULL;
+void Table::sitCustomer(Customer* customer){
+	customers[customer->getSeatNumber()] = customer;
+	return;
 }
 
-void Table:: changeState(){
-	state->changeTo(this);
+Customer** Table::getCustomers(){
+	return customers;
 }
 
-
-
-int Table::getTableID() {
-	return this->tableID;
-}
-
-void Table::setTableID(int tableID) {
-	this->tableID = tableID;
-}
-
-bool Table::getTableSatisfaction() {
-	return this->tableSatisfaction;
-}
-
-void Table::setTableSatisfaction(bool tableSatisfaction) {
-	this->tableSatisfaction = tableSatisfaction;
-}
-
-// Iterator* Table::createIterator() {
-// 	// TODO - implement Table::createIterator
-// 	throw "Not yet implemented";
-// }
-
-Table* Table::getClone() {
-	// TODO - implement Table::getClone
-	throw "Not yet implemented";
+int Table::getNumSeated(){
+	return numSeated;
 }
