@@ -1,34 +1,24 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <string>
-class TableState;
+#include "Customer.h"
+#include "Iterator.h"
 
-class Table  { // add the inheritance ,removed for testing purposes
+class Iterator;
+class Customer;
 
+class Table{
 private:
-	int tableID;
-	bool tableSatisfaction;
-	 TableState * state;
-
+	Customer** customers;
+	int numSeated;
 public:
-     Table();
-     void setState(TableState * state);
-	 std::string getState();
-    ~Table();
-	void changeState();
+	Table(int);
+	Iterator* createIterator();
 
-	int getTableID();
+	void sitCustomer(Customer*);
+	Customer** getCustomers();
 
-	void setTableID(int tableID);
-
-	bool getTableSatisfaction();
-
-	void setTableSatisfaction(bool tableSatisfaction);
-
-	//Iterator* createIterator();
-
-	Table* getClone();
+	int getNumSeated();
 };
 
 #endif
