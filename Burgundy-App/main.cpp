@@ -10,7 +10,7 @@ using namespace std;
 //main to test state and strategy
 int main(){
     //create a table 
-   Table *table = new Table();
+   Table *table = new Table(5);
 
     table->getState();
    table->changeState();
