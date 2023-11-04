@@ -1,13 +1,24 @@
+
 #include "Customer.h"
 
-Customer::Customer(){
-	seatNumber= -1;
+Customer::Customer(std::string customerName) {
+    this->customerName = customerName;
 }
 
-int Customer::getSeatNumber(){
-	return seatNumber;
+Customer::~Customer() {
+
 }
 
-void Customer::assignSeatNumber(int number){
-	seatNumber = number;
+void Customer::setOrder(int *order) {
+    for (int i = 0; i < 8; i++) {
+        this->order[i] = order[i];
+    }
+}
+
+int *Customer::getOrder() {
+    return order;
+}
+
+std::string Customer::getCustomerName() {
+    return customerName;
 }

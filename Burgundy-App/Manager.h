@@ -1,16 +1,16 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-class Manager : FloorStaff {
+#include "AbstractBuilder.h"
 
+class Manager {
 private:
-	bool observerState;
-	AbstractBuilder* Builder;
+    AbstractBuilder* builder;
 
 public:
-	void observeTable();
-
-	void construct();
+    Manager(AbstractBuilder* b) : builder(b) {}
+    void construct(int numCustomers);
 };
+
 
 #endif
