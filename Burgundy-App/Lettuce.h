@@ -4,10 +4,10 @@
 #include<string>
 #include<iostream>
 using namespace std;
-class Lettuce : Ingredient {
-    Lettuce();
-    ~Lettuce();
-
+class Lettuce :public Ingredient {
+	public:
+	Lettuce();
+	virtual ~Lettuce();
 };
 
 #endif

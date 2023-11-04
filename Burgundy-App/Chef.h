@@ -1,21 +1,26 @@
 #ifndef CHEF_H
 #define CHEF_H
 #include"KitchenStaff.h"
+#include"Order.h"
 #include<string>
 #include<iostream>
 using namespace std;
 
-class Chef : KitchenStaff {
+class Chef :public  KitchenStaff {
 
 private:
 	Chef* next;
-	string item;
+	Order* item;
 
 public:
-	Chef(Chef* next);
+	Chef(Chef* );
+
 	Chef* getNext();
+
 	void setNext(Chef* next);
-	void addOrderItem(string item);
+
+	virtual void addOrderItem(Order* item);//handler
+	virtual~Chef();
 };
 
 #endif

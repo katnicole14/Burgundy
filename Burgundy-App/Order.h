@@ -1,53 +1,64 @@
 #ifndef ORDER_H
 #define ORDER_H
-#include <iostream>
-class Drink;
-class BurgundySauce;
-class Fries;
-class Burger;
+#include"Drink.h"
+#include"BurgundySauce.h"
+#include"Burger.h"
+#include"Fries.h"
+#include<string>
+#include<iostream>
+using namespace std;
 
 class Order {
 
 private:
-	Drink* drinks;
+	/*Drink* drinks;
 	BurgundySauce* sauce;
 	Fries* fries;
 	Burger* burgers;
-	int** orderArray;
+	int** orderArray;*/
+	Drink** drinks;
+	BurgundySauce** sauce;
+	Fries** fries;
+	Burger** burgers;
+	int*** orderArray;
 	int tableID;
-
-public:
-	
-
-	Order(int numCustomers, int tableID);
-
-	~Order();
-
 	int numCustomers;
+public:
+	Order(int num);
+	
+	int getNumCustomers();
+	void setNumCustomers(int i);
 
-	Drink* getDrinks();
+	int*** getOrderArray();
 
-	void setDrinks(Drink* drinks);
+	Drink** getDrinks();
 
-	BurgundySauce* getSauce();
+	void setDrinks(Drink** drinks);
 
-	void setSauce(BurgundySauce* sauce);
+	BurgundySauce** getSauce();
 
-	Fries* getFries();
+	void setSauce(BurgundySauce** sauce);
 
-	void setFries(Fries* fries);
+	Fries** getFries();
 
-	Burger* getBurgers();
+	void setFries(Fries** fries);
 
-	void setBurgers(Burger* burgers);
+	Burger** getBurgers();
+
+	void setBurgers(Burger** burgers);
 
 	int getTableID();
 
 	void setTableID(int tableID);
 
+	Order(int numCustomers, int tableID);
+
 	void printOrderArray();
 
 	void setCustomerOrder(int customerIndex, int* order);
+
+	virtual ~Order();
+
 };
 
 #endif

@@ -1,15 +1,39 @@
 #include "SauceChef.h"
 
-Chef* SauceChef::getNext() {
-	return Chef::getNext();
+SauceChef::SauceChef(Chef* next) : Chef(next) {}
+
+Chef* SauceChef::getNext()  {
+    return Chef::getNext();
 }
 
 void SauceChef::setNext(Chef* next) {
-	
-	Chef::setNext(next);
+    Chef::setNext(next);
 }
 
-void SauceChef::addOrderItem(string item) {
-	cout<<"adding sauce"<<endl;
-Chef::addOrderItem(item);
+void SauceChef::addOrderItem(Order* order) {
+    cout << "Adding sauce" << endl;
+
+    int numCustomers = order->getNumCustomers();
+    BurgundySauce** sauce = new BurgundySauce*[numCustomers];
+
+    for (int i = 0; i < numCustomers; i++) {
+        // Check if sauce is wanted
+        if (*order->getOrderArray()[i][6] == 1) {
+            sauce[i] = new BurgundySauce();
+        } else {
+            sauce[i] = nullptr;
+        }
+    }
+
+    cout << "All sauces have been added. Get the drinks." << endl;
+
+    order->setSauce(sauce);
+    Chef::addOrderItem(order);
+}
+
+BurgundySauce* SauceChef::getSauce() {
+    // This method should return the BurgundySauce object, not nullptr.
+    // Implement the logic to retrieve the sauce.
+    // You might want to keep track of the sauces added to orders.
+    return nullptr; // Replace with actual logic.
 }

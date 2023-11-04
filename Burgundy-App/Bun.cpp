@@ -1,6 +1,6 @@
 #include "Bun.h"
 
-void Bun::addIngredient(BurgerIngred* ingred) {
+void Bun::addIngredient(Burger* ingred) {
 	// TODO - implement Bun::addIngredient
-	throw "Not yet implemented";
+	cout<<"adding new burger"<<endl;
 }

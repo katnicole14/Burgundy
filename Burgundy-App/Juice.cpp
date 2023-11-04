@@ -1,6 +1,12 @@
 #include "Juice.h"
 
 Juice::Juice() {
-	// TODO - implement Juice::Juice
-	throw "Not yet implemented";
+	
+}
+void Juice::print()
+{
+	std::cout<<"juice"<<std::endl;
+}
+Juice::~Juice() {
+	
 }

@@ -4,9 +4,12 @@
 #include<string>
 #include<iostream>
 using namespace std;
-class Patty : Ingredient {
-     Patty();
-    ~Patty();
+class Patty :public Ingredient {
+
+
+public:
+	Patty();
+	virtual ~Patty();
 };
 
 #endif

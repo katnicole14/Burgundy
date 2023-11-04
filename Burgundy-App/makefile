@@ -1,53 +1,28 @@
-TARGET = myprogram
+# Compiler
+CXX = g++
 
-SRCS = ship.cpp TableState.cpp Unoccupied.cpp \
-       Occupied.cpp BillPaid.cpp Dirty.cpp \
-	   Order.cpp Customer.cpp Iterator.cpp \
-       main.cpp
+# Compiler flags
+CXXFLAGS = -std=c++11 -Wall
 
-OBJS = Table.o TableState.o Unoccupied.o \
-	   Occupied.o BillPaid.o Dirty.o \
-	   Order.o Customer.o Iterator.o \
-       main.o
+# Source files
+SRCS = main.cpp Order.cpp Chef.cpp BurgerChef.cpp FriesChef.cpp SauceChef.cpp DrinksChef.cpp Pickle.cpp Tomato.cpp Lettuce.cpp Patty.cpp Ingredient.cpp Bun.cpp Burger.cpp BurgundySauce.cpp Fries.cpp Drink.cpp Water.cpp Juice.cpp SoftDrink.cpp 
 
-all: $(TARGET)
+# Object files
+OBJS = $(SRCS:.cpp=.o)
 
-$(TARGET): $(OBJS)
-	g++ $(OBJS) -o $(TARGET)
+# Executable name
+EXEC = my_program
 
-Iterator.o: Iterator.cpp
-	g++ -c Iterator.cpp
+all: $(EXEC)
 
-Customer.o: Customer.cpp
-	g++ -c Customer.cpp
+$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
 
-Order.o: Order.cpp 
-	g++ -c Order.cpp
-
-Table.o: Table.cpp
-	g++ -c Table.cpp
-
-TableState.o: TableState.cpp
-	g++ -c TableState.cpp
-
-Unoccupied.o: Unoccupied.cpp
-	g++ -c Unoccupied.cpp
-
-BillPaid.o: BillPaid.cpp
-	g++ -c BillPaid.cpp
-
-Occupied.o: Occupied.cpp
-	g++ -c Occupied.cpp
-
-Dirty.o: Dirty.cpp
-	g++ -c Dirty.cpp
-
-main.o: main.cpp
-	g++ -c main.cpp
-
-run: $(TARGET)
-	./$(TARGET)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(EXEC)
 
+run:
+	./$(EXEC)

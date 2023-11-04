@@ -1,6 +1,14 @@
 #include "Ingredient.h"
+Ingredient::Ingredient()
+{
 
-void Ingredient::addIngredient(BurgerIngred* ingred) {
+}
+Ingredient::Ingredient(Burger *burger)
+{
+    Ingredients=burger;
+}
+
+void Ingredient::addIngredient(Burger* ingred) {
 	cout << "Adding burger ingredients" << endl;
         if (Ingredients== 0){
             Ingredients = ingred;
@@ -9,5 +17,5 @@ void Ingredient::addIngredient(BurgerIngred* ingred) {
         }
 }
 Ingredient::~Ingredient() {
-	delete Ingredients;
+	//delete Ingredients;
 }

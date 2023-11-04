@@ -4,9 +4,10 @@
 #include<string>
 #include<iostream>
 using namespace std;
-class Tomato :  Ingredient {
+class Tomato :public  Ingredient {
+    public:
     Tomato();
-    ~Tomato();
+   virtual ~Tomato();
 };
 
 #endif
