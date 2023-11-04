@@ -4,6 +4,8 @@
 #include "Occupied.h"
 #include "BillPaid.h"
 #include "Dirty.h"
+#include "Order.h"
+using namespace std;
 #include <iostream>
 //main to test state and strategy
 int main(){
@@ -15,7 +17,7 @@ int main(){
    table->changeState();
 table->changeState();
 
-
+cout <<endl <<endl;
 
 
 //===============================================

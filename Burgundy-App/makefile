@@ -2,16 +2,21 @@ TARGET = myprogram
 
 SRCS = ship.cpp TableState.cpp Unoccupied.cpp \
        Occupied.cpp BillPaid.cpp Dirty.cpp \
+	   Order.cpp \
        main.cpp
 
 OBJS = Table.o TableState.o Unoccupied.o \
 	   Occupied.o BillPaid.o Dirty.o \
+	   Order.o \
        main.o
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	g++ $(OBJS) -o $(TARGET)
+
+Order.o: Order.cpp 
+	g++ -c Order.cpp
 
 Table.o: Table.cpp
 	g++ -c Table.cpp
