@@ -1,17 +1,24 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-class Iterator {
+#include "Customer.h"
+#include "Table.h"
 
+class Customer;
+class Table;
+
+class Iterator{
+private:
+	Table* table;
+	Customer* currentCustomer;
 
 public:
+	Iterator(Table*);
+
 	Customer* first();
-
 	Customer* next();
-
-	bool isDone();
-
-	Customer* currentItem();
+	// bool isDone();
+	Customer* getCurrentCustomer();
 };
 
 #endif

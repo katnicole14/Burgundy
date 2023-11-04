@@ -1,21 +1,33 @@
 #include "Iterator.h"
+#include <stdexcept>
+// #include "Customer.h"
+// #include "Table.h"
 
-Customer* Iterator::first() {
-	// TODO - implement Iterator::first
-	throw "Not yet implemented";
+Iterator::Iterator(Table* table_){
+	table = table_;
+	currentCustomer = nullptr;
 }
 
-Customer* Iterator::next() {
-	// TODO - implement Iterator::next
-	throw "Not yet implemented";
+Customer* Iterator::first(){
+	currentCustomer = table->getCustomers()[0];
+	return currentCustomer;
 }
 
-bool Iterator::isDone() {
-	// TODO - implement Iterator::isDone
-	throw "Not yet implemented";
+Customer* Iterator::next(){
+	int seatNumber = currentCustomer->getSeatNumber();
+
+	if(table->getNumSeated()<= seatNumber+ 1)
+		throw std::runtime_error("Done Iterating");
+	else
+		currentCustomer = table->getCustomers()[seatNumber+ 1];
+
+	return currentCustomer;
 }
 
-Customer* Iterator::currentItem() {
-	// TODO - implement Iterator::currentItem
-	throw "Not yet implemented";
+// bool Iterator::isDone(){
+// 	return currentCustomer == nullptr;
+// }
+
+Customer* Iterator::getCurrentCustomer(){
+	return currentCustomer;
 }
