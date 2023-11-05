@@ -8,6 +8,9 @@
 #include<iostream>
 #include<vector>
 
+
+class Memento;
+
 class Order {
 
 private:
