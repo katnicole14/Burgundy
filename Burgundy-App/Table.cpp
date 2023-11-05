@@ -58,10 +58,6 @@ void Table::receiveFinishedMeal(Order* order) {
 	std::cout << "Customers at table " << tableID << " are eating their meals." << std::endl;
 }
 
-int Table::getNumSeated() {
-	return numSeated;
-}
-
 void Table::changeState() {
 	state->changeTo(this);
 }
@@ -77,10 +73,7 @@ bool Table::getTableSatisfaction() {
 void Table::setTableSatisfaction(bool tableSatisfaction) {
 	this->tableSatisfaction = tableSatisfaction;
 }
-// Iterator* Table::createIterator() {
-// 	// TODO - implement Table::createIterator
-// 	throw "Not yet implemented";
-// }
+
 Table* Table::getClone() {
 	// TODO - implement Table::getClone
 	throw "Not yet implemented";
