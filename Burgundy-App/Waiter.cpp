@@ -5,7 +5,13 @@ Waiter::Waiter(std::string waiterName, Table *table, HeadChef *headChef) {
     this->table = table;
     this->headChef = headChef;
 }
-
+   float Waiter :: getTip(){
+         return tip;
+     }
+     
+    void Waiter :: setTip(float value){
+         tip = value;
+     }
 Waiter::~Waiter() {
 
 }

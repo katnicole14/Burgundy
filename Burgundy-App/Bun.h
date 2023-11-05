@@ -6,6 +6,7 @@
 class Bun : public Burger {
 
 public:
+    const float price = 2;
 	void addIngredient(Burger* ingred);
 };
 
