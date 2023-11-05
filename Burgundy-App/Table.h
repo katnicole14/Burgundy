@@ -24,7 +24,7 @@ private:
 public:
 	Table();
 	Iterator* createIterator();
-	void setCustomers(Custome
+	void setCustomers(Customer** customers);
 	Customer** getCustomers();
      	void setState(TableState * state);
 	std::string getState();

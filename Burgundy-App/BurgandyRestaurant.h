@@ -1,16 +1,23 @@
 #ifndef BURGANDYRESTAURANT_H
 #define BURGANDYRESTAURANT_H
+#include "Restaurant.h"
+#include <vector>
 
-class BurgandyRestaurant : Restaurant {
-
+class Table;
+class BurgandyRestaurant : public Restaurant {
 private:
-	Table* eatingHallState;
+	//bool eatingHallState;
 	Table* table;
 
-public:
-	Table* getState();
 
-	void setState(Table* state);
+
+public:
+	BurgandyRestaurant();
+	//setTableList(vector);
+
+/* 	bool getState();
+	void setState(bool state); */
+
 };
 
 #endif

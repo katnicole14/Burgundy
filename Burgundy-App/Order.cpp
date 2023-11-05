@@ -122,7 +122,7 @@ int*** Order::getOrderArray()
 
 
 Memento* Order::makeMemento(){
-	return new Memento(drinks, sauce, fries, burgers, orderArray, tableID, numCustomers);
+	return new Memento(orderArray, tableID, numCustomers);
 }
 
 void Order::setMemento(Memento* memento){
@@ -130,11 +130,6 @@ void Order::setMemento(Memento* memento){
 	tableID = memento->state->getTableID();
 
 	for(int i = 0; i < numCustomers; i++){
-		*drinks[i] = *memento->state->getDrink()[i];
-		*sauce[i] = *memento->state->getSauce()[i];
-		*fries[i] = *memento->state->getFries()[i];
-		*burgers[i] = *memento->state->getBurger()[i];
-
 		for(int j = 0; j < numCustomers; j++){
 			*orderArray[i][j]= *memento->state->getOrderArray()[i][j];
 		}
