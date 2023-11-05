@@ -4,7 +4,7 @@
 using namespace std;
 
 Order::Order(int num):tableID(0), numCustomers(num){
-	drink = new Drink*[numCustomers];
+	drinks = new Drink*[numCustomers];
 	sauce = new Sauce*[numCustomers];
 	fries = new Fries*[numCustomers];
 	burger = new Burger*[numCustomers];
@@ -12,7 +12,7 @@ Order::Order(int num):tableID(0), numCustomers(num){
 	orderArray = new int**[numCustomers];
 
 	for(int i = 0; i < numCustomers; i++){
-		drink[i] = nullptr;
+		drinks[i] = nullptr;
 		sauce[i] = nullptr;
 		fries[i] = nullptr;
 		burger[i] = nullptr;
@@ -24,73 +24,115 @@ Order::Order(int num):tableID(0), numCustomers(num){
 	}
 }
 
-// void Order::printArrays(){
-// 	for(int i = 0; i < numCustomers; i++){
-// 		cout<< *drink[i];
-// 	}
+Order::~Order()
+{
+	//delete arrays
+	for(int i = 0; i < numCustomers; i++)
+	{
+		if(fries[i] != nullptr)
+		delete fries[i];
 
-// 	cout<< endl<< endl;
+		if(drinks[i] != nullptr)
+		delete drinks[i];
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		cout<< *sauce[i];
-// 	}
+		if(sauce[i] != nullptr)
+		delete sauce[i];
 
-// 	cout<< endl<< endl;
+		if(burgers[i] != nullptr)
+		delete burgers[i];
+		
+		for(int j = 0; j < numCustomers; j++){
+			if(orderArray[i][j] != nullptr){
+				delete orderArray[i][j];
+			}
+		}
+		delete []orderArray[i];
+	}
+	delete []orderArray;
+	delete []burgers;
+	delete []fries;
+	delete []drinks;
+	delete []sauce;
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		cout<< *fries[i];
-// 	}
+Drink** Order::getDrinks() {
+	return this->drinks;
+}
 
-// 	cout<< endl<< endl;
+void Order::setDrinks(Drink** drinks) {
+	this->drinks = drinks;
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		cout<< *burger[i];
-// 	}
+BurgundySauce** Order::getSauce() {
+	return this->sauce;
+}
 
-// 	cout<< endl<< endl;
+void Order::setSauce(BurgundySauce** sauce) {
+	this->sauce = sauce;
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		cout<< endl;
-// 		for(int j = 0; j < numCustomers; j++){
-// 			cout<< *orderArray[i][j];
-// 		}
-// 	}
+Fries** Order::getFries() {
+	return this->fries;
+}
 
-// 	cout<< endl<< endl;
+void Order::setFries(Fries** fries) {
+	this->fries = fries;
+}
 
-// }
+Burger** Order::getBurgers() {
+	return this->burgers;
+}
 
-// void Order::changeStates(int delta){
-// 	for(int i = 0; i < numCustomers; i++){
-// 		*drink[i] += delta;
-// 	}
+void Order::setBurgers(Burger** burgers) {
+	this->burgers = burgers;
+}
 
+int Order::getTableID() {
+	return this->tableID;
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		*sauce[i] += delta;
-// 	}
+void Order::setTableID(int tableID) {
+	this->tableID = tableID;
+}
 
+Order::Order(int numCustomers, int tableID) {
+	// TODO - implement Order::Order
+	throw "Not yet implemented";
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		*fries[i] += delta;
-// 	}
+void Order::printOrderArray() {
+	for(int i = 0; i < numCustomers; i++){
+		cout<< endl;
+		for(int j = 0; j < numCustomers; j++){
+			cout<< *orderArray[i][j];
+		}
+	}
+}
 
+void Order::setCustomerOrder(int customerIndex, int* order) {
+	// TODO - implement Order::setCustomerOrder
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		*burger[i] += delta;
-// 	}
+	throw "Not yet implemented";
+}
 
+int Order::getNumCustomers()
+{
+	return numCustomers;
+}
 
-// 	for(int i = 0; i < numCustomers; i++){
-// 		for(int j = 0; j < numCustomers; j++){
-// 			*orderArray[i][j] += delta;
-// 		}
-// 	}
-	
-// }
+void Order::setNumCustomers(int numcustomers)
+{
+	this->numCustomers=numcustomers;
+}
+
+int*** Order::getOrderArray()
+{
+	return orderArray;
+}
+
 
 Memento* Order::makeMemento(){
-	return new Memento(drink, sauce, fries, burger, orderArray, tableID, numCustomers);
+	return new Memento(drinks, sauce, fries, burger, orderArray, tableID, numCustomers);
 }
 
 void Order::setMemento(Memento* memento){
@@ -98,7 +140,7 @@ void Order::setMemento(Memento* memento){
 	tableID = memento->state->getTableID();
 
 	for(int i = 0; i < numCustomers; i++){
-		*drink[i] = *memento->state->getDrink()[i];
+		*drinks[i] = *memento->state->getDrink()[i];
 		*sauce[i] = *memento->state->getSauce()[i];
 		*fries[i] = *memento->state->getFries()[i];
 		*burger[i] = *memento->state->getBurger()[i];
@@ -108,4 +150,3 @@ void Order::setMemento(Memento* memento){
 		}
 	}
 }
-
