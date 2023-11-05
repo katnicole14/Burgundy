@@ -1,4 +1,6 @@
 #include "SoftDrink.h"
+#include<string>
+#include<iostream>
 
 SoftDrink::SoftDrink() {
 	

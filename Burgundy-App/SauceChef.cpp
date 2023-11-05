@@ -1,4 +1,6 @@
 #include "SauceChef.h"
+#include<string>
+#include<iostream>
 
 SauceChef::SauceChef(Chef* next) : Chef(next) {}
 
@@ -11,7 +13,7 @@ void SauceChef::setNext(Chef* next) {
 }
 
 void SauceChef::addOrderItem(Order* order) {
-    cout << "Adding sauce" << endl;
+    std::cout << "Adding sauce" << std::endl;
 
     int numCustomers = order->getNumCustomers();
     BurgundySauce** sauce = new BurgundySauce*[numCustomers];
@@ -25,7 +27,7 @@ void SauceChef::addOrderItem(Order* order) {
         }
     }
 
-    cout << "All sauces have been added. Get the drinks." << endl;
+    std::cout << "All sauces have been added. Get the drinks." << std::endl;
 
     order->setSauce(sauce);
     Chef::addOrderItem(order);

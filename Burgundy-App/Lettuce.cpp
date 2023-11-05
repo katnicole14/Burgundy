@@ -1,9 +1,12 @@
 #include "Lettuce.h"
+#include<string>
+#include<iostream>
 
-Lettuce::Lettuce() :Ingredient(){
+Lettuce::Lettuce() :Ingredient() {
 	
-std::cout<< "added Lettuce" <<std::endl;
+//std::cout<< "added Lettuce" <<std::endl;
 }
 
-Lettuce::~Lettuce()
-{}
+Lettuce::~Lettuce() {
+
+}

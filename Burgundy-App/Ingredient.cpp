@@ -1,21 +1,24 @@
 #include "Ingredient.h"
-Ingredient::Ingredient()
-{
+#include<string>
+#include<iostream>
+
+Ingredient::Ingredient(){
 
 }
-Ingredient::Ingredient(Burger *burger)
-{
+
+Ingredient::Ingredient(Burger *burger) {
     Ingredients=burger;
 }
 
 void Ingredient::addIngredient(Burger* ingred) {
-	cout << "Adding burger ingredients" << endl;
+	std::cout << "Adding burger ingredients" << std::endl;
         if (Ingredients== 0){
             Ingredients = ingred;
         } else {
             Ingredients->addIngredient(ingred);
         }
 }
+
 Ingredient::~Ingredient() {
 	//delete Ingredients;
 }

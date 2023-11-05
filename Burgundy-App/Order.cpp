@@ -1,4 +1,7 @@
 #include "Order.h"
+#include<string>
+#include<iostream>
+
 Order::Order(int num)
 {
 	numCustomers=num;
@@ -7,35 +10,38 @@ Order::Order(int num)
 	drinks=new Drink*[numCustomers];
 	burgers=new Burger*[numCustomers];
 	sauce=new BurgundySauce*[numCustomers];
-
 	orderArray = new int**[numCustomers];
 	
-
 	for(int i = 0; i < numCustomers; i++){
-		drinks[i] = NULL;
-		sauce[i] = NULL;
-		fries[i] = NULL;
-		burgers[i] = NULL;
+		drinks[i] = nullptr;
+		sauce[i] = nullptr;
+		fries[i] = nullptr;
+		burgers[i] = nullptr;
 
 		orderArray[i]= new int*[8];
-		for(int j = 0; j < numCustomers; j++){
+		for(int j = 0; j < 8; j++){
 			orderArray[i][j]= new int(1);
 		}
 	}
 }
+
 Drink** Order::getDrinks() {
+
 	return this->drinks;
 }
 
 void Order::setDrinks(Drink** drinks) {
+
 	this->drinks = drinks;
 }
 
 BurgundySauce** Order::getSauce() {
+
 	return this->sauce;
 }
 
 void Order::setSauce(BurgundySauce** sauce) {
+
 	this->sauce = sauce;
 }
 
@@ -44,22 +50,27 @@ Fries** Order::getFries() {
 }
 
 void Order::setFries(Fries** fries) {
+
 	this->fries = fries;
 }
 
 Burger** Order::getBurgers() {
+
 	return this->burgers;
 }
 
 void Order::setBurgers(Burger** burgers) {
+
 	this->burgers = burgers;
 }
 
 int Order::getTableID() {
+
 	return this->tableID;
 }
 
 void Order::setTableID(int tableID) {
+
 	this->tableID = tableID;
 }
 
@@ -108,11 +119,19 @@ Order::~Order()
 		if(burgers[i]!=NULL)
 		delete burgers[i];
 		
+		for(int j=0;j<8;j++)
+		{
+			if(orderArray[i][j]!=nullptr)
+			delete orderArray[i][j];
+		}
 		delete[] orderArray[i];
+		
 	}
+
 	delete [] orderArray;
 	delete []burgers;
 	delete []fries;
 	delete []drinks;
 	delete []sauce;
+	
 }

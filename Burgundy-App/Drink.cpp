@@ -1,15 +1,16 @@
 #include "Drink.h"
-Drink::Drink()
-{
+#include<string>
+#include<iostream>
+
+Drink::Drink() {
 
 }
-Drink::~Drink()
-{
+Drink::~Drink() {
 
 }
 void Drink::print() {
 
-	cout<<"creating drink"<<endl;
+	std::cout<<"creating drink"<<std::endl;
 }
 
 

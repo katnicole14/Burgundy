@@ -1,6 +1,14 @@
 #include "FriesChef.h"
-FriesChef::FriesChef(Chef* next):Chef(next){}
+#include<string>
+#include<iostream>
+
+
+FriesChef::FriesChef(Chef* next):Chef(next){
+
+}
+
 Chef* FriesChef::getNext() {
+	
 	return Chef::getNext();
 }
 
@@ -10,23 +18,28 @@ void FriesChef::setNext(Chef* next) {
 }
 
 void FriesChef::addOrderItem(Order* order) {
-	cout<<"adding fries"<<endl;
-	Fries**fries=new Fries*[order->getNumCustomers()];
+	
+	Fries** fries = new Fries* [order->getNumCustomers()];
+	int counter = 0;
+
+	std::cout<<"Making fries"<<std::endl;
+
 	for (int i=0;i<order->getNumCustomers();i++)//for every customer 
 	{ //if fries are wanted
-		cout<<"i="<<*order->getOrderArray()[i][5]<<endl;
-		if(*order->getOrderArray()[i][5]==1)
+		if(*order->getOrderArray()[i][5] == 1)
 		{
-			fries[i]=new Fries();
-			
+
+			fries[i] = new Fries();
+			counter++;	
 		}
 		else{
-			fries[i]=NULL;
+
+			fries[i] = nullptr;
 		}
 	}
-	cout<<" All Fries done sauces needed next"<<endl;
-order->setFries(fries);
-  Chef::addOrderItem(order);
+	std::cout<<" All "<<counter<<" Fries done sauces needed next"<<std::endl;
+	order->setFries(fries);
+	Chef::addOrderItem(order);
 }
 
 Fries* FriesChef::getFries() {

@@ -1,14 +1,10 @@
 #ifndef BURGUNDYSAUCE_H
 #define BURGUNDYSAUCE_H
-#include<string>
-#include<iostream>
-using namespace std;
-class BurgundySauce {
 
+class BurgundySauce {
 
 public:
 	BurgundySauce();
-
 	void print();
 };
 

@@ -7,25 +7,13 @@
 #include"SoftDrink.h"
 #include"Drink.h"
 
-
-#include<string>
-#include<iostream>
-using namespace std;
-
-
-
 class DrinksChef: public Chef {
-
 
 public:
 	DrinksChef();
-
 	Chef* getNext();
-
 	void setNext(Chef* next);
-
 	void addOrderItem(Order* item);
-
 	Drink* getDrink(int type);
 };
 

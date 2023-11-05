@@ -1,6 +1,9 @@
 #include "Bun.h"
+#include<string>
+#include<iostream>
+
 
 void Bun::addIngredient(Burger* ingred) {
 	// TODO - implement Bun::addIngredient
-	cout<<"adding new burger"<<endl;
+	//std::cout<<"adding new burger"<<std::endl;
 }
