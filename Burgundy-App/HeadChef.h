@@ -11,7 +11,7 @@
 class Waiter;
 #include <iostream>
 
-class HeadChef : public Colleague, public FloorStaff {
+class HeadChef : public Colleague, public FloorStaff,public KitchenStaff {
 private:
     Order* order; // Maybe?
 
