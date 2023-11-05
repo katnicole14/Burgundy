@@ -1,53 +1,36 @@
-TARGET = myprogram
 
-SRCS = ship.cpp TableState.cpp Unoccupied.cpp \
-       Occupied.cpp BillPaid.cpp Dirty.cpp \
-	   Order.cpp Customer.cpp Iterator.cpp \
-       main.cpp
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-OBJS = Table.o TableState.o Unoccupied.o \
-	   Occupied.o BillPaid.o Dirty.o \
-	   Order.o Customer.o Iterator.o \
-       main.o
+# Directory structure
+SRCDIR = .
+BUILDDIR = build
+BINDIR = bin
 
-all: $(TARGET)
+# Find all source files in SRCDIR
+SOURCES := $(wildcard $(SRCDIR)/*.cpp)
 
-$(TARGET): $(OBJS)
-	g++ $(OBJS) -o $(TARGET)
+# Create object file names from source files
+OBJECTS := $(SOURCES:$(SRCDIR)/%.cpp=$(BUILDDIR)/%.o)
 
-Iterator.o: Iterator.cpp
-	g++ -c Iterator.cpp
+# The name of the final executable
+EXECUTABLE = $(BINDIR)/my_program
 
-Customer.o: Customer.cpp
-	g++ -c Customer.cpp
+# Default target: build the executable
+all: $(EXECUTABLE)
 
-Order.o: Order.cpp 
-	g++ -c Order.cpp
+# Rule to compile source files into object files
+$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-Table.o: Table.cpp
-	g++ -c Table.cpp
+# Rule to link object files into the executable
+$(EXECUTABLE): $(OBJECTS)
+	@mkdir -p $(@D)
+	$(CXX) $(OBJECTS) -o $@
 
-TableState.o: TableState.cpp
-	g++ -c TableState.cpp
-
-Unoccupied.o: Unoccupied.cpp
-	g++ -c Unoccupied.cpp
-
-BillPaid.o: BillPaid.cpp
-	g++ -c BillPaid.cpp
-
-Occupied.o: Occupied.cpp
-	g++ -c Occupied.cpp
-
-Dirty.o: Dirty.cpp
-	g++ -c Dirty.cpp
-
-main.o: main.cpp
-	g++ -c main.cpp
-
-run: $(TARGET)
-	./$(TARGET)
-
+# Clean target: remove generated files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	$(RM) -r $(BUILDDIR) $(BINDIR)
 
+.PHONY: all clean

@@ -2,8 +2,8 @@
 
 using namespace std;
 
-Memento::Memento(Drink** drink_, Sauce** sauce_, Fries** fries_, Burger** burger_, int*** ordrArray_, int tableID_, int numCustomers_){
-	state= new State(drink_, sauce_, fries_, burger_, ordrArray_, tableID_, numCustomers_);
+Memento::Memento(int*** orderArray_, int tableID_, int numCustomers_){
+	state= new State(orderArray_, tableID_, numCustomers_);
 }
 
 void Memento::printState(){

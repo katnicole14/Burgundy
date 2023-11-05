@@ -1,13 +1,12 @@
 #include "Order.h"
 #include <iostream>
 
-using namespace std;
-
 Order::Order(int num):tableID(0), numCustomers(num){
+	int menuOptions= 8;
 	drinks = new Drink*[numCustomers];
-	sauce = new Sauce*[numCustomers];
+	sauce = new BurgundySauce*[numCustomers];
 	fries = new Fries*[numCustomers];
-	burger = new Burger*[numCustomers];
+	burgers = new Burger*[numCustomers];
 
 	orderArray = new int**[numCustomers];
 
@@ -15,10 +14,10 @@ Order::Order(int num):tableID(0), numCustomers(num){
 		drinks[i] = nullptr;
 		sauce[i] = nullptr;
 		fries[i] = nullptr;
-		burger[i] = nullptr;
+		burgers[i] = nullptr;
 
-		orderArray[i]= new int*[numCustomers];
-		for(int j = 0; j < numCustomers; j++){
+		orderArray[i]= new int*[menuOptions];
+		for(int j = 0; j < menuOptions; j++){
 			orderArray[i][j]= new int(1);
 		}
 	}
@@ -27,6 +26,7 @@ Order::Order(int num):tableID(0), numCustomers(num){
 Order::~Order()
 {
 	//delete arrays
+	int numOptions = 8;
 	for(int i = 0; i < numCustomers; i++)
 	{
 		if(fries[i] != nullptr)
@@ -41,7 +41,7 @@ Order::~Order()
 		if(burgers[i] != nullptr)
 		delete burgers[i];
 		
-		for(int j = 0; j < numCustomers; j++){
+		for(int j = 0; j < numOptions; j++){
 			if(orderArray[i][j] != nullptr){
 				delete orderArray[i][j];
 			}
@@ -88,10 +88,12 @@ void Order::setBurgers(Burger** burgers) {
 }
 
 int Order::getTableID() {
+
 	return this->tableID;
 }
 
 void Order::setTableID(int tableID) {
+
 	this->tableID = tableID;
 }
 
@@ -102,9 +104,9 @@ Order::Order(int numCustomers, int tableID) {
 
 void Order::printOrderArray() {
 	for(int i = 0; i < numCustomers; i++){
-		cout<< endl;
+		std::cout<< std::endl;
 		for(int j = 0; j < numCustomers; j++){
-			cout<< *orderArray[i][j];
+			std::cout<< *orderArray[i][j];
 		}
 	}
 }
@@ -114,17 +116,14 @@ void Order::setCustomerOrder(int customerIndex, int* order) {
 
 	throw "Not yet implemented";
 }
-
 int Order::getNumCustomers()
 {
 	return numCustomers;
 }
-
 void Order::setNumCustomers(int numcustomers)
 {
 	this->numCustomers=numcustomers;
 }
-
 int*** Order::getOrderArray()
 {
 	return orderArray;
@@ -132,7 +131,7 @@ int*** Order::getOrderArray()
 
 
 Memento* Order::makeMemento(){
-	return new Memento(drinks, sauce, fries, burger, orderArray, tableID, numCustomers);
+	return new Memento(drinks, sauce, fries, burgers, orderArray, tableID, numCustomers);
 }
 
 void Order::setMemento(Memento* memento){
@@ -143,7 +142,7 @@ void Order::setMemento(Memento* memento){
 		*drinks[i] = *memento->state->getDrink()[i];
 		*sauce[i] = *memento->state->getSauce()[i];
 		*fries[i] = *memento->state->getFries()[i];
-		*burger[i] = *memento->state->getBurger()[i];
+		*burgers[i] = *memento->state->getBurger()[i];
 
 		for(int j = 0; j < numCustomers; j++){
 			*orderArray[i][j]= *memento->state->getOrderArray()[i][j];
