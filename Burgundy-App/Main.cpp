@@ -54,5 +54,15 @@ newOrderObject->printOrderArray();
 //===============================================
 //END OF CUSTOMERS SETTING ORDERS
 //===============================================
+    
+Order *order = new Order(5);
+Chef* handlerChain = new BurgerChef(new FriesChef(new SauceChef(new DrinksChef())));
+
+ cout<<"start the chain "<<endl;
+handlerChain->addOrderItem(order);
+cout<<"chain done"<<endl;
+delete handlerChain;
+delete order;
+cout<<"end chain"<<endl;
     return 0;
 }
