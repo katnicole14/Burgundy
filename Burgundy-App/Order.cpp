@@ -12,82 +12,82 @@ Order::Order(int num):tableID(0), numCustomers(num){
 	orderArray = new int**[numCustomers];
 
 	for(int i = 0; i < numCustomers; i++){
-		drink[i] = new Drink();
-		sauce[i] = new Sauce();
-		fries[i] = new Fries();
-		burger[i] = new Burger();
+		drink[i] = nullptr;
+		sauce[i] = nullptr;
+		fries[i] = nullptr;
+		burger[i] = nullptr;
 
 		orderArray[i]= new int*[numCustomers];
 		for(int j = 0; j < numCustomers; j++){
-			orderArray[i][j]= new int(j);
+			orderArray[i][j]= new int(1);
 		}
 	}
 }
 
-void Order::printArrays(){
-	for(int i = 0; i < numCustomers; i++){
-		cout<< *drink[i];
-	}
+// void Order::printArrays(){
+// 	for(int i = 0; i < numCustomers; i++){
+// 		cout<< *drink[i];
+// 	}
 
-	cout<< endl<< endl;
+// 	cout<< endl<< endl;
 
-	for(int i = 0; i < numCustomers; i++){
-		cout<< *sauce[i];
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		cout<< *sauce[i];
+// 	}
 
-	cout<< endl<< endl;
+// 	cout<< endl<< endl;
 
-	for(int i = 0; i < numCustomers; i++){
-		cout<< *fries[i];
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		cout<< *fries[i];
+// 	}
 
-	cout<< endl<< endl;
+// 	cout<< endl<< endl;
 
-	for(int i = 0; i < numCustomers; i++){
-		cout<< *burger[i];
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		cout<< *burger[i];
+// 	}
 
-	cout<< endl<< endl;
+// 	cout<< endl<< endl;
 
-	for(int i = 0; i < numCustomers; i++){
-		cout<< endl;
-		for(int j = 0; j < numCustomers; j++){
-			cout<< *orderArray[i][j];
-		}
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		cout<< endl;
+// 		for(int j = 0; j < numCustomers; j++){
+// 			cout<< *orderArray[i][j];
+// 		}
+// 	}
 
-	cout<< endl<< endl;
+// 	cout<< endl<< endl;
 
-}
+// }
 
-void Order::changeStates(int delta){
-	for(int i = 0; i < numCustomers; i++){
-		*drink[i] += delta;
-	}
-
-
-	for(int i = 0; i < numCustomers; i++){
-		*sauce[i] += delta;
-	}
+// void Order::changeStates(int delta){
+// 	for(int i = 0; i < numCustomers; i++){
+// 		*drink[i] += delta;
+// 	}
 
 
-	for(int i = 0; i < numCustomers; i++){
-		*fries[i] += delta;
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		*sauce[i] += delta;
+// 	}
 
 
-	for(int i = 0; i < numCustomers; i++){
-		*burger[i] += delta;
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		*fries[i] += delta;
+// 	}
 
 
-	for(int i = 0; i < numCustomers; i++){
-		for(int j = 0; j < numCustomers; j++){
-			*orderArray[i][j] += delta;
-		}
-	}
+// 	for(int i = 0; i < numCustomers; i++){
+// 		*burger[i] += delta;
+// 	}
+
+
+// 	for(int i = 0; i < numCustomers; i++){
+// 		for(int j = 0; j < numCustomers; j++){
+// 			*orderArray[i][j] += delta;
+// 		}
+// 	}
 	
-}
+// }
 
 Memento* Order::makeMemento(){
 	return new Memento(drink, sauce, fries, burger, orderArray, tableID, numCustomers);

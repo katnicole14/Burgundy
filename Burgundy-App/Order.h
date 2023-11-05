@@ -17,8 +17,8 @@ private:
 
 public:
 	Order(int);
-	void printArrays();
-	void changeStates(int);
+	// void printArrays();
+	// void changeStates(int);
 
 	void setMemento(Memento*);
 	Memento* makeMemento();
