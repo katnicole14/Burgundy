@@ -4,6 +4,7 @@
 using namespace std;
 
 Order::Order(int num):tableID(0), numCustomers(num){
+	int menuOptions= 8;
 	drinks = new Drink*[numCustomers];
 	sauce = new Sauce*[numCustomers];
 	fries = new Fries*[numCustomers];
@@ -17,8 +18,8 @@ Order::Order(int num):tableID(0), numCustomers(num){
 		fries[i] = nullptr;
 		burger[i] = nullptr;
 
-		orderArray[i]= new int*[numCustomers];
-		for(int j = 0; j < numCustomers; j++){
+		orderArray[i]= new int*[menuOptions];
+		for(int j = 0; j < menuOptions; j++){
 			orderArray[i][j]= new int(1);
 		}
 	}
@@ -27,6 +28,7 @@ Order::Order(int num):tableID(0), numCustomers(num){
 Order::~Order()
 {
 	//delete arrays
+	int numOptions = 8;
 	for(int i = 0; i < numCustomers; i++)
 	{
 		if(fries[i] != nullptr)
@@ -41,7 +43,7 @@ Order::~Order()
 		if(burgers[i] != nullptr)
 		delete burgers[i];
 		
-		for(int j = 0; j < numCustomers; j++){
+		for(int j = 0; j < numOptions; j++){
 			if(orderArray[i][j] != nullptr){
 				delete orderArray[i][j];
 			}
