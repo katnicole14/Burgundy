@@ -12,7 +12,7 @@ public:
 	Chef* getNext();
 	void setNext(Chef* next);
 	void addOrderItem(Order* item);
-	Fries* getFries();
+	
 };
 
 #endif
