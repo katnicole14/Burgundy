@@ -1,6 +1,6 @@
 #include "Table.h"
-// #include "Customer.h"
-// #include "Iterator.h"
+#include "Customer.h"
+#include "Iterator.h"
 #include <iostream>
 #include "Occupied.h"
 
