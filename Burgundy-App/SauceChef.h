@@ -11,7 +11,7 @@ public:
 	Chef* getNext();
 	void setNext(Chef* next);
 	void addOrderItem(Order* item);
-	BurgundySauce* getSauce();
+	
 };
 
 #endif
