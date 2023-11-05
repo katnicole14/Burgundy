@@ -1,11 +1,12 @@
 #ifndef BUN_H
 #define BUN_H
+#include"Burger.h"
+#include"Bun.h"
 
-class Bun : BurgerIngred {
-
+class Bun : public Burger {
 
 public:
-	void addIngredient(BurgerIngred* ingred);
+	void addIngredient(Burger* ingred);
 };
 
 #endif

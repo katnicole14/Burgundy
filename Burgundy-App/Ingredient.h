@@ -1,18 +1,17 @@
 #ifndef INGREDIENT_H
 #define INGREDIENT_H
-#include"BurgerIngred.h"
-#include<string>
-#include<iostream>
-using namespace std;
+#include"Burger.h"
+#include"Bun.h"
+class Bun;
 
-class Ingredient : BurgerIngred {
-private:
-	BurgerIngred* Ingredients;
+class Ingredient :public   Burger {
+
 public:
-	
-	void addIngredient(BurgerIngred* ingred);
-protected:
-~Ingredient();
+	Burger* Ingredients;
+	Ingredient();
+	Ingredient(Burger* burger);
+	void addIngredient(Burger* ingred);
+	virtual ~Ingredient();
 };
 
 #endif
