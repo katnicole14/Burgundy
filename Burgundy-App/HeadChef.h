@@ -1,12 +1,29 @@
 #ifndef HEADCHEF_H
 #define HEADCHEF_H
 
-class HeadChef : FloorStaff, KitchenStaff, Colleague {
+#include "Colleague.h"
+#include "Order.h"
+
+#include <iostream>
+
+class HeadChef : public Colleague {
+private:
+    Order* order; // Maybe?
 
 public:
-	bool observerState;
+    HeadChef();
+    ~HeadChef();
+    void receiveOrder(Order* order);
+    Order* sendOutFinishedMeal();
+    // void passToChain(Order* order)
 
-	void observeTable();
+    void placeOrders();
+    void receiveFinishedMeal(Order* order);
+
+    void setOrder(Order* order);
+    Order* getOrder();
+
 };
+
 
 #endif

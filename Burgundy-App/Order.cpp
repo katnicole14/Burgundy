@@ -3,7 +3,8 @@
 
 using namespace std;
 
-Order::Order(int num):tableID(0), numCustomers(num){
+
+Order::Order(int num, int tableID):tableID(tableID), numCustomers(num){
 	int menuOptions= 8;
 	drinks = new Drink*[numCustomers];
 	sauce = new Sauce*[numCustomers];
@@ -20,7 +21,7 @@ Order::Order(int num):tableID(0), numCustomers(num){
 
 		orderArray[i]= new int*[menuOptions];
 		for(int j = 0; j < menuOptions; j++){
-			orderArray[i][j]= new int(1);
+			orderArray[i][j]= new int(0);
 		}
 	}
 }
@@ -151,4 +152,33 @@ void Order::setMemento(Memento* memento){
 			*orderArray[i][j]= *memento->state->getOrderArray()[i][j];
 		}
 	}
+}
+// The printOrderArray function should print every row of the orderArray
+void Order::printOrderArray() {
+    std::cout << "Printing orderArray:" << std::endl;
+    for (int i = 0; i < numCustomers; i++) {
+        for (int j = 0; j < 8; j++) {
+            std::cout << this->orderArray[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Order::setCustomerOrder(int customerIndex, int* order) {
+    for (int j = 0; j < 8; j++) {
+        this->orderArray[customerIndex][j] = new int(order[j]);
+    }
+}
+
+
+int ***Order::getOrderArray() {
+    return orderArray;
+}
+
+void Order::setNumCustomers(int numCustomers) {
+    this->numCustomers = numCustomers;
+}
+
+int Order::getNumCustomers() {
+    return numCustomers;
 }

@@ -1,14 +1,37 @@
 #include "Waiter.h"
 
-void Waiter::observeTable() {
-	// TODO - implement Waiter::observeTable
-	throw "Not yet implemented";
+Waiter::Waiter(std::string waiterName, Table *table, HeadChef *headChef) {
+    this->waiterName = waiterName;
+    this->table = table;
+    this->headChef = headChef;
 }
 
-int Waiter::getWaiterID() {
-	return this->waiterID;
+Waiter::~Waiter() {
+
 }
 
-void Waiter::setWaiterID(int waiterID) {
-	this->waiterID = waiterID;
+void Waiter::setWaiterName(std::string waiterName) {
+    this->waiterName = waiterName;
+}
+
+std::string Waiter::getWaiterName() {
+    return waiterName;
+}
+
+void Waiter::setTable(Table *table) {
+    this->table = table;
+}
+
+void Waiter::setHeadChef(HeadChef *headChef) {
+    this->headChef = headChef;
+}
+
+void Waiter::deliverOrder() {
+    Order* order = table->getCustomerOrders();
+    headChef->receiveOrder(order);
+}
+
+void Waiter::deliverMeal() {
+    Order* order = headChef->sendOutFinishedMeal();
+    table->receiveFinishedMeal(order);
 }
