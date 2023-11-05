@@ -1,16 +1,24 @@
 #include "Restaurant.h"
 
-void Restaurant::attach(FloorStaff staffMember) {
-	// TODO - implement Restaurant::attach
-	throw "Not yet implemented";
+Restaurant::Restaurant() {
 }
 
-void Restaurant::operation(FloorStaff staffMember) {
-	// TODO - implement Restaurant::operation
-	throw "Not yet implemented";
+
+void Restaurant::attachObserver(FloorStaff* staffMember) {
+	this->observerList.push_back(staffMember);
 }
 
-void Restaurant::notify() {
-	// TODO - implement Restaurant::notify
-	throw "Not yet implemented";
+/* void Restaurant::remove(FloorStaff* staffMember) {
+
+for (FloorStaff* staff : this->observerList) {
+        if (this->observerList[staff] == staffMember) {
+		}
+    }
+}
+*/
+
+void Restaurant::notify(std::vector<Table*>& tables) {
+	for (FloorStaff* staff : this->observerList) {
+        staff->observeSatisfaction(tables);
+    }
 }
