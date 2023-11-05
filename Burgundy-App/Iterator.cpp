@@ -1,7 +1,7 @@
 #include "Iterator.h"
 #include <stdexcept>
-// #include "Customer.h"
-// #include "Table.h"
+#include "Customer.h"
+#include "Table.h"
 
 Iterator::Iterator(Table* table_){
 	table = table_;
@@ -16,7 +16,7 @@ Customer* Iterator::first(){
 Customer* Iterator::next(){
 	int seatNumber = currentCustomer->getSeatNumber();
 
-	if(table->getNumSeated()<= seatNumber+ 1)
+	if(table->getNumCustomers()<= seatNumber+ 1)
 		throw std::runtime_error("Done Iterating");
 	else
 		currentCustomer = table->getCustomers()[seatNumber+ 1];

@@ -8,6 +8,7 @@ class Customer {
 private:
     std::string customerName;
     int order[8];
+    int seatNumber;
 
 public:
     Customer(std::string customerName);
@@ -15,6 +16,8 @@ public:
     void setOrder(int order[8]);
     int* getOrder();
     std::string getCustomerName();
+	int getSeatNumber();
+	void assignSeatNumber(int);
 };
 
 

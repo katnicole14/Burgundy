@@ -5,16 +5,25 @@
 #include "BillPaid.h"
 #include "Dirty.h"
 #include "Order.h"
+
 #include "Memento.h"
 #include "Caretaker.h"
 #include "ConcreteBuilder.h"
 #include "Manager.h"
 #include "Waiter.h"
-
+#include "HeadChef.h"
+#include "Chef.h"
+#include "BurgerChef.h"
+#include "FriesChef.h"
+#include "SauceChef.h"
+#include "DrinksChef.h"
+#include "BurgandyRestaurant.h"
 #include <iostream>
 
-void testMemento();
-int* generateOrder();
+// void testMemento();
+//  int* generateOrder();
+
+
 
 using namespace std;
 
@@ -22,7 +31,7 @@ using namespace std;
 int main(){
     //======================= MEMENTO ==========================//
     cout << "======================= MEMENTO =======================\n";
-    testMemento();
+    // testMemento();
     // ======================= BUILDER =======================
 
     cout << "======================= BUILDER =======================\n";
@@ -146,12 +155,12 @@ int main(){
     
     
     //create a table 
-   Table *table = new Table(5);
 
-    table->getState();
-   table->changeState();
-   table->changeState();
-table->changeState();
+
+//     table->getState();
+//    table->changeState();
+//    table->changeState();
+// table->changeState();
 
 cout <<endl <<endl;
 
@@ -159,39 +168,39 @@ cout <<endl <<endl;
 //===============================================
 //CUSTOMERS SETTING ORDERS
 //===============================================
-int* order0 = new int[8] {1, 1, 1, 1, 0, 0, 0, 2};
-int* order1 = new int[8] {1, 1, 1, 1, 0, 0, 0, 1};
-int* order2 = new int[8] {1, 1, 1, 1, 0, 0, 0, 2};
-int* order3 = new int[8] {1, 1, 0, 1, 1, 1, 1, 3};
-int* order4 = new int[8] {1, 1, 1, 1, 0, 0, 0, 1};
+// int* order0 = new int[8] {1, 1, 1, 1, 0, 0, 0, 2};
+// int* order1 = new int[8] {1, 1, 1, 1, 0, 0, 0, 1};
+// int* order2 = new int[8] {1, 1, 1, 1, 0, 0, 0, 2};
+// int* order3 = new int[8] {1, 1, 0, 1, 1, 1, 1, 3};
+// int* order4 = new int[8] {1, 1, 1, 1, 0, 0, 0, 1};
 
-Order* newOrderObject = new Order(5,1);
+// Order* newOrderObject = new Order(5,1);
 
-cout << "Setting Customer 0 Order" << endl;
-newOrderObject->setCustomerOrder(0,order0);
-newOrderObject->printOrderArray();
+// cout << "Setting Customer 0 Order" << endl;
+// newOrderObject->setCustomerOrder(0,order0);
+// newOrderObject->printOrderArray();
 
-cout << "Setting Customer 1 Order" << endl;
-newOrderObject->setCustomerOrder(1,order1);
-newOrderObject->printOrderArray();
+// cout << "Setting Customer 1 Order" << endl;
+// newOrderObject->setCustomerOrder(1,order1);
+// newOrderObject->printOrderArray();
 
-cout << "Setting Customer 2 Order" << endl;
-newOrderObject->setCustomerOrder(2,order2);
-newOrderObject->printOrderArray();
+// cout << "Setting Customer 2 Order" << endl;
+// newOrderObject->setCustomerOrder(2,order2);
+// newOrderObject->printOrderArray();
 
-cout << "Setting Customer 3 Order" << endl;
-newOrderObject->setCustomerOrder(3,order3);
-newOrderObject->printOrderArray();
+// cout << "Setting Customer 3 Order" << endl;
+// newOrderObject->setCustomerOrder(3,order3);
+// newOrderObject->printOrderArray();
 
-cout << "Setting Customer 4 Order" << endl;
-newOrderObject->setCustomerOrder(4,order4);
-newOrderObject->printOrderArray();
+// cout << "Setting Customer 4 Order" << endl;
+// newOrderObject->setCustomerOrder(4,order4);
+// newOrderObject->printOrderArray();
 
 //===============================================
 //END OF CUSTOMERS SETTING ORDERS
 //===============================================
     
-Order *order = new Order(5);
+Order *order = new Order(5,5);
 Chef* handlerChain = new BurgerChef(new FriesChef(new SauceChef(new DrinksChef())));
 
  cout<<"start the chain "<<endl;
@@ -200,49 +209,120 @@ cout<<"chain done"<<endl;
 delete handlerChain;
 delete order;
 cout<<"end chain"<<endl;
+
+
+
+
+
+
+
+    
+//==========================================================
+// FLOOR STAFF OBSERVING RESTAURANT
+//==========================================================
+
+//create restaurant
+
+// BurgandyRestaurant* burgundy = new BurgandyRestaurant();
+
+//create Manager HeadChef and 2 Waiters
+/* FloorStaff* managerA = new Manager();
+FloorStaff* headChefA = new HeadChef(); */
+
+// Manager* managerA = new Manager();
+// HeadChef* headChefA = new HeadChef();
+
+//create tables for waiters
+
+
+//create a vector of tables
+
+vector<Table*> tableList;
+tableList.push_back( new Table() );
+tableList[0]->setTableSatisfaction(true);
+tableList[0]->setTableID(0);
+
+tableList.push_back( new Table() );
+tableList[1]->setTableSatisfaction(false);
+tableList[1]->setTableID(1);
+
+
+//Waiter(std::string waiterName, Table* table, HeadChef* headChef);
+
+//create waiters
+// Waiter* waiterA = new Waiter("waiterA" , tableList[0], headChefA);
+// Waiter* waiterB = new Waiter("waiterB" , tableList[1], headChefA);
+
+//Attach Observsers to Restaurant
+// burgundy->attachObserver(managerA);
+// burgundy->attachObserver(headChefA);
+// burgundy->attachObserver(waiterA);
+// burgundy->attachObserver(waiterB);
+
+//void attachObserver(FloorStaff* staffMember);
+//void remove(FloorStaff* staffMember);
+
+// burgundy->notify(tableList);
+
+
+//==========================================================
+// END OF FLOOR STAFF OBSERVING RESTAURANT
+//==========================================================
+
     return 0;
 }
 
-void testMemento(){
-    ///initialize variables
-    Order order(5, 3);
-    Memento* memento;
-    Caretaker ct;
 
-    ///Show current state of the orderArray
-    cout<< "Initial State" << endl;
-    order.printOrderArray();
 
-    ///Save state of orderArray
-    memento = order.makeMemento();
-    ct.storeMemento(memento);
 
-    ///Mutate orderArray
-    int* customOrder = generateOrder();
-    order.setCustomerOrder(3, customOrder);
 
-    ///Show state of the orderArray
-    cout<< "State after change"<< endl;
-    order.printOrderArray();
 
-    ///Restore state of the orderArray
-    Memento* redo = ct.getMemento();
-    order.setMemento(ct.getMemento());
+
+// void testMemento(){
+//     ///initialize variables
+//     Order order(5, 3);
+//     Memento* memento;
+//     Caretaker ct;
+
+//     ///Show current state of the orderArray
+//     cout<< "Initial State" << endl;
+//     order.printOrderArray();
+
+//     ///Save state of orderArray
+//     memento = order.makeMemento();
+//     ct.storeMemento(memento);
+
+//     ///Mutate orderArray
+//     int* customOrder = generateOrder();
+//     order.setCustomerOrder(3, customOrder);
+
+//     ///Show state of the orderArray
+//     cout<< "State after change"<< endl;
+//     order.printOrderArray();
+
+//     ///Restore state of the orderArray
+//     Memento* redo = ct.getMemento();
+//     order.setMemento(ct.getMemento());
     
 
-    ///Show state of the orderArray
-    cout<< "State after change"<< endl;
-    order.printOrderArray();
+//     ///Show state of the orderArray
+//     cout<< "State after change"<< endl;
+//     order.printOrderArray();
 
-    return 0;
-}
 
-int* generateOrder(){
-    int* tmp = new int[8];
 
-    for(int i = 0; i < 8; i++){
-        tmp = int(i);
-    }
 
-    return tmp;
-}
+
+// }
+
+
+
+// int* generateOrder() {
+//     int* tmp = new int[8];
+
+//     for (int i = 0; i < 8; i++) {
+//         tmp[i] = i;  // Use array indexing to assign values to the array
+//     }
+
+//     return tmp;
+// }

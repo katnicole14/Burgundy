@@ -11,6 +11,7 @@ private:
     AbstractBuilder* builder;
 
 public:
+
     Manager(AbstractBuilder* b) : builder(b) {}
     void construct(int numCustomers);
     void observeSatisfaction(std::vector<Table*>& tables);

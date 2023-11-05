@@ -44,21 +44,3 @@ void HeadChef::setOrder(Order *order) {
 Order *HeadChef::getOrder() {
     return order;
 }
-
-void HeadChef::observeSatisfaction(std::vector<Table*>& tables) {
-	int numTables = tables.size();
-
-  this->observerState = true;
-  // run for loop from 0 to vecSize
-  for( int i = 0; i < numTables; i++)
-  {
-    if ( tables[i]->getTableSatisfaction() == false) {
-        this->observerState = false; 
-    }
-  }
-
-    if (this->observerState) {
-        std::cout << "HeadChef Observer Result: Restaurant is satisfied" <<std::endl;}
-        else {
-        std::cout << "HeadChef Observer Result: Restaurant is not satisfied" <<std::endl;
-    }

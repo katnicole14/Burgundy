@@ -16,6 +16,7 @@ private:
 public:
     Waiter(std::string waiterName, Table* table, HeadChef* headChef);
     ~Waiter();
+    void observeSatisfaction(std::vector<Table*>& tables);
     void setWaiterName(std::string waiterName);
     std::string getWaiterName();
     void setTable(Table* table);

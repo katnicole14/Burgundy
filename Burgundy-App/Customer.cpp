@@ -3,10 +3,19 @@
 
 Customer::Customer(std::string customerName) {
     this->customerName = customerName;
+    seatNumber= -1;
 }
 
 Customer::~Customer() {
 
+}
+
+int Customer::getSeatNumber(){
+	return seatNumber;
+}
+
+void Customer::assignSeatNumber(int number){
+	seatNumber = number;
 }
 
 void Customer::setOrder(int *order) {

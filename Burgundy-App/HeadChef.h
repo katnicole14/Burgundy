@@ -5,13 +5,13 @@
 #include "Order.h"
 #include <vector>
 #include "FloorStaff.h"
-//#include "KitchenStaff.h"
+#include "KitchenStaff.h"
 
 #include "Table.h"
 class Waiter;
 #include <iostream>
 
-class HeadChef : public Colleague, public FloorStaff {
+class HeadChef : public Colleague, public FloorStaff,public KitchenStaff {
 private:
     Order* order; // Maybe?
 
