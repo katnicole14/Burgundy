@@ -1,21 +1,36 @@
-TARGET = myprogram
-CXX=g++
-CFLAGS=-I. -Wall
 
-OBJS = Table.o TableState.o Unoccupied.o \
-	   Occupied.o BillPaid.o Dirty.o \
-	   Order.o Customer.o Iterator.o \
-       main.o
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-all: $(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o $(TARGET)
-    
-%.o: %.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@
+# Directory structure
+SRCDIR = .
+BUILDDIR = build
+BINDIR = bin
 
-run: $(TARGET)
-	./$(TARGET)
+# Find all source files in SRCDIR
+SOURCES := $(wildcard $(SRCDIR)/*.cpp)
 
+# Create object file names from source files
+OBJECTS := $(SOURCES:$(SRCDIR)/%.cpp=$(BUILDDIR)/%.o)
+
+# The name of the final executable
+EXECUTABLE = $(BINDIR)/my_program
+
+# Default target: build the executable
+all: $(EXECUTABLE)
+
+# Rule to compile source files into object files
+$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Rule to link object files into the executable
+$(EXECUTABLE): $(OBJECTS)
+	@mkdir -p $(@D)
+	$(CXX) $(OBJECTS) -o $@
+
+# Clean target: remove generated files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	$(RM) -r $(BUILDDIR) $(BINDIR)
 
+.PHONY: all clean
