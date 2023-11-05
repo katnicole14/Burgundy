@@ -1,11 +1,11 @@
 #include "Memento.h"
 
-vector<Ingredient*> Memento::getState() {
-	// TODO - implement Memento::getState
-	throw "Not yet implemented";
+using namespace std;
+
+Memento::Memento(Drink** drink_, Sauce** sauce_, Fries** fries_, Burger** burger_, int*** ordrArray_, int tableID_, int numCustomers_){
+	state= new State(drink_, sauce_, fries_, burger_, ordrArray_, tableID_, numCustomers_);
 }
 
-void Memento::setState(vector<Ingredient*> menuState) {
-	// TODO - implement Memento::setState
-	throw "Not yet implemented";
+void Memento::printState(){
+	state->printArrays();
 }
