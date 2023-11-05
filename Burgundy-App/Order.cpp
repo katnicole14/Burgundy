@@ -98,11 +98,6 @@ void Order::setTableID(int tableID) {
 	this->tableID = tableID;
 }
 
-Order::Order(int numCustomers, int tableID) {
-	// TODO - implement Order::Order
-	throw "Not yet implemented";
-}
-
 void Order::printOrderArray() {
 	for(int i = 0; i < numCustomers; i++){
 		std::cout<< std::endl;
@@ -112,18 +107,13 @@ void Order::printOrderArray() {
 	}
 }
 
-void Order::setCustomerOrder(int customerIndex, int* order) {
-	// TODO - implement Order::setCustomerOrder
-
-	throw "Not yet implemented";
-}
 int Order::getNumCustomers()
 {
 	return numCustomers;
 }
-void Order::setNumCustomers(int numcustomers)
+void Order::setNumCustomers(int numCustomers)
 {
-	this->numCustomers=numcustomers;
+	this->numCustomers=numCustomers;
 }
 int*** Order::getOrderArray()
 {
@@ -150,32 +140,9 @@ void Order::setMemento(Memento* memento){
 		}
 	}
 }
-// The printOrderArray function should print every row of the orderArray
-void Order::printOrderArray() {
-    std::cout << "Printing orderArray:" << std::endl;
-    for (int i = 0; i < numCustomers; i++) {
-        for (int j = 0; j < 8; j++) {
-            std::cout << this->orderArray[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-}
 
 void Order::setCustomerOrder(int customerIndex, int* order) {
     for (int j = 0; j < 8; j++) {
         this->orderArray[customerIndex][j] = new int(order[j]);
     }
-}
-
-
-int ***Order::getOrderArray() {
-    return orderArray;
-}
-
-void Order::setNumCustomers(int numCustomers) {
-    this->numCustomers = numCustomers;
-}
-
-int Order::getNumCustomers() {
-    return numCustomers;
 }
