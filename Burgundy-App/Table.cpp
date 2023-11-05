@@ -18,6 +18,11 @@ Iterator* Table::createIterator(){
 int Table:: getSeatNumber(){
 	return numSeated;
 }
+
+void Table::setCustomers(Customer **customers) {
+    this->customers = customers;
+}
+
 Customer** Table::getCustomers(){
 	return customers;
 }
