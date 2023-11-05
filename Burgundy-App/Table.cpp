@@ -15,6 +15,9 @@ Iterator* Table::createIterator(){
 	return new Iterator(this);
 }
 
+int Table:: getSeatNumber(){
+	return numSeated;
+}
 Customer** Table::getCustomers(){
 	return customers;
 }
@@ -109,4 +112,5 @@ void Table::receiveOrder(Order* order) {
 
 Order* Table::sendOutFinishedMeal() {
     // Do nothing
+	return nullptr;
 }

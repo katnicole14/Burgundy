@@ -48,6 +48,7 @@ void ConcreteBuilder::buildPart(int numCustomers) {
 
 Table *ConcreteBuilder::getResult() {
 //    return table;
+return nullptr;
 }
 
 int ConcreteBuilder::GenerateTableID() {
