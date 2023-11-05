@@ -23,6 +23,15 @@ void HeadChef::receiveOrder(Order *order) {
         }
         std::cout << std::endl;
     }
+
+    Chef* handlerChain = new BurgerChef(new FriesChef(new SauceChef(new DrinksChef())));
+
+    std::cout<<"start the chain "<<std::endl;
+    handlerChain->addOrderItem(order);
+    std::cout<<"chain done"<<std::endl;
+    delete handlerChain;
+    // delete order;
+    std::cout<<"end chain"<<std::endl;
 }
 
 Order* HeadChef::sendOutFinishedMeal() {
