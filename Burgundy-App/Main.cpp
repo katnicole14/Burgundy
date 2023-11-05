@@ -20,8 +20,8 @@
 #include "BurgandyRestaurant.h"
 #include <iostream>
 
-// void testMemento();
-//  int* generateOrder();
+void testMemento();
+ int* generateOrder();
 
 
 
@@ -31,7 +31,7 @@ using namespace std;
 int main(){
     //======================= MEMENTO ==========================//
     cout << "======================= MEMENTO =======================\n";
-    // testMemento();
+    testMemento();
     // ======================= BUILDER =======================
 
     cout << "======================= BUILDER =======================\n";
@@ -278,51 +278,51 @@ tableList[1]->setTableID(1);
 
 
 
-// void testMemento(){
-//     ///initialize variables
-//     Order order(5, 3);
-//     Memento* memento;
-//     Caretaker ct;
+void testMemento(){
+    ///initialize variables
+    Order order(5, 3);
+    Memento* memento;
+    Caretaker ct;
 
-//     ///Show current state of the orderArray
-//     cout<< "Initial State" << endl;
-//     order.printOrderArray();
+    ///Show current state of the orderArray
+    cout<< "Initial State" << endl;
+    order.printOrderArray();
 
-//     ///Save state of orderArray
-//     memento = order.makeMemento();
-//     ct.storeMemento(memento);
+    ///Save state of orderArray
+    memento = order.makeMemento();
+    ct.storeMemento(memento);
 
-//     ///Mutate orderArray
-//     int* customOrder = generateOrder();
-//     order.setCustomerOrder(3, customOrder);
+    ///Mutate orderArray
+    int* customOrder = generateOrder();
+    order.setCustomerOrder(3, customOrder);
 
-//     ///Show state of the orderArray
-//     cout<< "State after change"<< endl;
-//     order.printOrderArray();
+    ///Show state of the orderArray
+    cout<< "State after change"<< endl;
+    order.printOrderArray();
 
-//     ///Restore state of the orderArray
-//     Memento* redo = ct.getMemento();
-//     order.setMemento(ct.getMemento());
+    ///Restore state of the orderArray
+    Memento* redo = ct.getMemento();
+    order.setMemento(ct.getMemento());
     
 
-//     ///Show state of the orderArray
-//     cout<< "State after change"<< endl;
-//     order.printOrderArray();
+    ///Show state of the orderArray
+    cout<< "State after change"<< endl;
+    order.printOrderArray();
 
 
 
 
 
-// }
+}
 
 
 
-// int* generateOrder() {
-//     int* tmp = new int[8];
+int* generateOrder() {
+    int* tmp = new int[8];
 
-//     for (int i = 0; i < 8; i++) {
-//         tmp[i] = i;  // Use array indexing to assign values to the array
-//     }
+    for (int i = 0; i < 8; i++) {
+        tmp[i] = i;  // Use array indexing to assign values to the array
+    }
 
-//     return tmp;
-// }
+    return tmp;
+}

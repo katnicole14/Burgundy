@@ -34,3 +34,6 @@ clean:
 	$(RM) -r $(BUILDDIR) $(BINDIR)
 
 .PHONY: all clean
+
+run:
+	./$(EXECUTABLE)

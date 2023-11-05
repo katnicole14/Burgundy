@@ -41,6 +41,10 @@ void HeadChef::setOrder(Order *order) {
     this->order = order;
 }
 
-Order *HeadChef::getOrder() {
+Order* HeadChef::getOrder() {
     return order;
+}
+
+void HeadChef::observeSatisfaction(std::vector<Table*>& tables){
+	//Please implement
 }
