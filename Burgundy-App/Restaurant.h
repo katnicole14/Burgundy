@@ -1,17 +1,20 @@
 #ifndef RESTAURANT_H
 #define RESTAURANT_H
 #include "FloorStaff.h"
+#include <vector>
+#include <iostream>
+class Table;
+
 class Restaurant {
 
-private:
-	FloorStaff* observerList;
+protected:
+	std::vector<FloorStaff*> observerList;
+	std::vector<Table*> tables;
 
 public:
-	void attach(FloorStaff staffMember);
-
-	void operation(FloorStaff staffMember);
-
-	void notify();
+	Restaurant();
+	void attachObserver(FloorStaff* staffMember);
+	void notify(std::vector<Table*>& tables);
 };
 
 #endif
