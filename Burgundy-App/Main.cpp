@@ -5,12 +5,13 @@
 #include "BillPaid.h"
 #include "Dirty.h"
 #include "Order.h"
-using namespace std;
+
 #include "Memento.h"
 #include "Caretaker.h"
 #include "ConcreteBuilder.h"
 #include "Manager.h"
 #include "Waiter.h"
+#include "HeadChef.h"
 
 #include <iostream>
 
@@ -235,6 +236,62 @@ void testMemento(){
     cout<< "State after change"<< endl;
     order.printOrderArray();
 
+
+
+    
+//==========================================================
+// FLOOR STAFF OBSERVING RESTAURANT
+//==========================================================
+
+//create restaurant
+
+BurgandyRestaurant* burgundy = new BurgandyRestaurant();
+
+//create Manager HeadChef and 2 Waiters
+/* FloorStaff* managerA = new Manager();
+FloorStaff* headChefA = new HeadChef(); */
+
+Manager* managerA = new Manager();
+HeadChef* headChefA = new HeadChef();
+
+//create tables for waiters
+
+
+//create a vector of tables
+
+vector<Table*> tableList;
+tableList.push_back( new Table() );
+tableList[0]->setTableSatisfaction(true);
+tableList[0]->setTableID(0);
+
+tableList.push_back( new Table() );
+tableList[1]->setTableSatisfaction(false);
+tableList[1]->setTableID(1);
+
+
+//Waiter(std::string waiterName, Table* table, HeadChef* headChef);
+
+//create waiters
+Waiter* waiterA = new Waiter("waiterA" , tableList[0], headChefA);
+Waiter* waiterB = new Waiter("waiterB" , tableList[1], headChefA);
+
+//Attach Observsers to Restaurant
+burgundy->attachObserver(managerA);
+burgundy->attachObserver(headChefA);
+burgundy->attachObserver(waiterA);
+burgundy->attachObserver(waiterB);
+
+//void attachObserver(FloorStaff* staffMember);
+//void remove(FloorStaff* staffMember);
+
+burgundy->notify(tableList);
+
+
+//==========================================================
+// END OF FLOOR STAFF OBSERVING RESTAURANT
+//==========================================================
+
+    
     return 0;
 }
 
