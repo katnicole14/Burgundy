@@ -3,10 +3,15 @@
 
 #include "Colleague.h"
 #include "Order.h"
+#include <vector>
+#include "FloorStaff.h"
+//#include "KitchenStaff.h"
 
+#include "Table.h"
+class Waiter;
 #include <iostream>
 
-class HeadChef : public Colleague {
+class HeadChef : public Colleague, public FloorStaff {
 private:
     Order* order; // Maybe?
 
@@ -22,6 +27,7 @@ public:
 
     void setOrder(Order* order);
     Order* getOrder();
+    void observeSatisfaction(std::vector<Table*>& tables);
 
 };
 
