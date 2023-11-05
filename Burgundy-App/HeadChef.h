@@ -5,7 +5,7 @@
 #include "Order.h"
 #include <vector>
 #include "FloorStaff.h"
-//#include "KitchenStaff.h"
+#include "KitchenStaff.h"
 
 #include "Table.h"
 class Waiter;
