@@ -33,9 +33,3 @@ void SauceChef::addOrderItem(Order* order) {
     Chef::addOrderItem(order);
 }
 
-BurgundySauce* SauceChef::getSauce() {
-    // This method should return the BurgundySauce object, not nullptr.
-    // Implement the logic to retrieve the sauce.
-    // You might want to keep track of the sauces added to orders.
-    return nullptr; // Replace with actual logic.
-}
