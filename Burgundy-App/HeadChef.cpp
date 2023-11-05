@@ -15,11 +15,11 @@ void HeadChef::receiveOrder(Order *order) {
     std::cout << "Num customers: " << order->getNumCustomers() << std::endl;
     std::cout << "Table ID: " << order->getTableID() << std::endl;
 
-    int** orders = order->getOrderArray();
+    int ***orders = order->getOrderArray();
     for (int i = 0; i < order->getNumCustomers(); ++i) {
         std::cout << "Customer " << i << ": ";
         for (int j = 0; j < 8; ++j) {
-            std::cout << orders[i][j] << " ";
+            std::cout << *orders[i][j] << " ";
         }
         std::cout << std::endl;
     }
