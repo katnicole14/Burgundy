@@ -1,11 +1,13 @@
 #ifndef SOFTDRINK_H
 #define SOFTDRINK_H
+#include "Drink.h"
 
-class SoftDrink : Drink {
+class SoftDrink : public Drink {
+	public:
+		SoftDrink();
+		void print();
+		virtual ~SoftDrink();
 
-
-public:
-	SoftDrink();
 };
 
 #endif

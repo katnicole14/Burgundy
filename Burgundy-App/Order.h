@@ -1,6 +1,5 @@
 #ifndef ORDER_H
 #define ORDER_H
-
 #include"Drink.h"
 #include"BurgundySauce.h"
 #include"Burger.h"
@@ -12,6 +11,7 @@
 class Order {
 
 private:
+	
 	Drink** drinks;
 	BurgundySauce** sauce;
 	Fries** fries;

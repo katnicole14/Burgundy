@@ -1,11 +1,12 @@
 #ifndef WATER_H
 #define WATER_H
+#include "Drink.h"
 
-class Water : Drink {
-
-
-public:
-	Water();
+class Water : public Drink {
+	public:
+		Water();
+		void print();
+		virtual ~Water();
 };
 
 #endif
