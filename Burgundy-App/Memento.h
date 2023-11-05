@@ -11,8 +11,7 @@ class Memento{
 private:
 	friend class Order;
 	State* state;
-	Memento(Drink**, Sauce**, Fries**, Burger**, int***, int, int);
-
+	Memento(int***, int, int);
 public:
 	void printState();
 };
