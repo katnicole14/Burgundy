@@ -35,3 +35,13 @@ void Waiter::deliverMeal() {
     Order* order = headChef->sendOutFinishedMeal();
     table->receiveFinishedMeal(order);
 }
+
+void Waiter::observeSatisfaction(std::vector<Table*>& tables) {
+
+	this->observerState = this->table->getTableSatisfaction();
+    if (observerState) {
+        std::cout << "Waiter Observer Result : Table " << this->table->getTableID() << " is satisfied" <<std::endl;
+    }
+    else 
+        std::cout << "Waiter Observer Result : Table " << this->table->getTableID() << " is not satisfied" <<std::endl;
+}
