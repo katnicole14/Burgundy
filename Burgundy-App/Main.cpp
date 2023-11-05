@@ -5,14 +5,24 @@
 #include "BillPaid.h"
 #include "Dirty.h"
 #include "Order.h"
-
+#include "Memento.h
+#include "Caretaker.h"
 #include "ConcreteBuilder.h"
 #include "Manager.h"
 #include "Waiter.h"
-using namespace std;
+
 #include <iostream>
+
+void testMemento();
+int* generateOrder();
+
+using namespace std;
+
 //main to test state and strategy
 int main(){
+    //======================= MEMENTO ==========================//
+    cout << "======================= MEMENTO =======================\n";
+    testMemento();
     // ======================= BUILDER =======================
 
     cout << "======================= BUILDER =======================\n";
@@ -191,4 +201,48 @@ delete handlerChain;
 delete order;
 cout<<"end chain"<<endl;
     return 0;
+}
+
+void testMemento(){
+    ///initialize variables
+    Order order(5, 3);
+    Memento* memento;
+    Caretaker ct;
+
+    ///Show current state of the orderArray
+    cout<< "Initial State" << endl;
+    order.printOrderArray();
+
+    ///Save state of orderArray
+    memento = order.makeMemento();
+    ct.storeMemento(memento);
+
+    ///Mutate orderArray
+    int* customOrder = generateOrder();
+    order.setCustomerOrder(3, customOrder);
+
+    ///Show state of the orderArray
+    cout<< "State after change"<< endl;
+    order.printOrderArray();
+
+    ///Restore state of the orderArray
+    Memento* redo = ct.getMemento();
+    order.setMemento(ct.getMemento());
+    
+
+    ///Show state of the orderArray
+    cout<< "State after change"<< endl;
+    order.printOrderArray();
+
+    return 0;
+}
+
+int* generateOrder(){
+    int* tmp = new int[8];
+
+    for(int i = 0; i < 8; i++){
+        tmp = int(i);
+    }
+
+    return tmp;
 }
