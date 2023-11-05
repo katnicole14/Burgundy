@@ -4,39 +4,65 @@
 #include <iostream>
 #include "Occupied.h"
 
-Table::Table(int numCustomers){
-
+Table::Table(){
+	tableID = 0;
+	customers = nullptr;
 	std::cout <<"Table is now occupied"<<std::endl;
 	state = new Occupied();
-
-	numSeated = numCustomers;
-
-	customers = new Customer*[numSeated];
-
-	for(int i = 0; i < numSeated; i ++ ){
-		customers[i] = new Customer();
-		customers[i]->assignSeatNumber(i);
-	}
 }
 
 Iterator* Table::createIterator(){
 	return new Iterator(this);
 }
 
-void Table::sitCustomer(Customer* customer){
-	customers[customer->getSeatNumber()] = customer;
-	return;
-}
-
 Customer** Table::getCustomers(){
 	return customers;
 }
 
-int Table::getNumSeated(){
+void Table::setAvailableSeats(int availableSeats) {
+	this->availableSeats = availableSeats;
+}
+
+int Table::getAvailableSeats() {
+   	return availableSeats;
+}
+
+void Table::setNumCustomers(int numCustomers) {
+    	this->numCustomers = numCustomers;
+}
+
+int Table::getNumCustomers() {
+    	return numCustomers;
+}
+
+void Table::placeOrders() {
+	order->setNumCustomers(numCustomers);
+	for (int i = 0; i < numCustomers; i++)
+	{
+		int* customerOrder = customers[i]->getOrder();
+		order->setCustomerOrder(i, customerOrder);
+	}
+}
+
+Order *Table::getCustomerOrders() {
+    	return order;
+}
+
+void Table::createOrder(Order *order) {
+    	this->order = order;
+}
+
+void Table::receiveFinishedMeal(Order* order) {
+	// Customers should somehow eat their meals here
+	
+	std::cout << "Customers at table " << tableID << " are eating their meals." << std::endl;
+}
+
+int Table::getNumSeated() {
 	return numSeated;
 }
 
-void Table:: changeState(){
+void Table::changeState() {
 	state->changeTo(this);
 }
 int Table::getTableID() {
@@ -59,17 +85,35 @@ Table* Table::getClone() {
 	// TODO - implement Table::getClone
 	throw "Not yet implemented";
 }
-Table::~Table(){
-    delete state;
+Table::~Table() {
+    	delete state;
 	state = NULL;
-	}
 
-	std::string Table:: getState(){
-return state->getState();
+	if (customers) {
+        for (int i = 0; i < numCustomers; i++) {
+            if (customers[i])
+            {
+                delete customers[i];
+            }
+        }
+        delete[] customers;
+    }
 }
 
-void Table:: setState(TableState * state_){
+std::string Table:: getState() {
+	return state->getState();
+}
+
+void Table::setState(TableState* state_) {
 std::cout << "Table state has changed from "<< state->getState() << " to " << state_->getState() << std::endl;
 delete state ;
 state = state_;
+}
+
+void Table::receiveOrder(Order* order) {
+    // Do nothing
+}
+
+Order* Table::sendOutFinishedMeal() {
+    // Do nothing
 }
