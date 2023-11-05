@@ -7,7 +7,7 @@
 #include<string>
 #include<iostream>
 #include<vector>
-
+#include "Memento.h"
 
 class Memento;
 
