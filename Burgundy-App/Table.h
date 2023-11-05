@@ -23,28 +23,37 @@ private:
 
 public:
 	Table();
-	Iterator* createIterator();
-	void setCustomers(Customer** customers);
-	Customer** getCustomers();
-     	void setState(TableState * state);
-	std::string getState();
+	
     	~Table();
-	void changeState();
-	int getTableID();
-	void setTableID(int tableID);
-	bool getTableSatisfaction();
-	void setTableSatisfaction(bool tableSatisfaction);
+    	
+	void changeState();	
+	
+	//getters
 	Table* getClone();
-	void setAvailableSeats(int availableSeats);
     	int getAvailableSeats();
-	void setNumCustomers(int numCustomers);
+    	Customer** getCustomers();
+    	bool getTableSatisfaction();
+	int getSeatNumber();
+	int getTableID();
+	std::string getState();
 	int getNumCustomers();
 	Order* getCustomerOrders();
+	
+	//verbs
+	Iterator* createIterator();
 	void createOrder(Order* order);
 	void placeOrders();
     	void receiveFinishedMeal(Order* order);
     	void receiveOrder(Order* order);
     	Order* sendOutFinishedMeal();
+    	
+    	//setters
+    	void setTableID(int tableID);
+    	void setNumCustomers(int numCustomers);
+    	void setAvailableSeats(int availableSeats);
+    	void setCustomers(Customer** customers);
+    	void setTableSatisfaction(bool tableSatisfaction);
+    	void setState(TableState * state);
 };
 
 #endif
