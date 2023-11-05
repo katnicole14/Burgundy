@@ -42,6 +42,4 @@ void FriesChef::addOrderItem(Order* order) {
 	Chef::addOrderItem(order);
 }
 
-Fries* FriesChef::getFries() {
-	return nullptr;
-}
+

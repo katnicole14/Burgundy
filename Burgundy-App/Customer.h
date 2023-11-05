@@ -1,13 +1,21 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-class Customer{
+#include <string>
+#include <iostream>
+
+class Customer {
 private:
-	int seatNumber;
+    std::string customerName;
+    int order[8];
+
 public:
-	Customer();
-	int getSeatNumber();
-	void assignSeatNumber(int);
+    Customer(std::string customerName);
+    ~Customer();
+    void setOrder(int order[8]);
+    int* getOrder();
+    std::string getCustomerName();
 };
+
 
 #endif

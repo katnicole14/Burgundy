@@ -1,19 +1,28 @@
 #ifndef WAITER_H
 #define WAITER_H
 
-class Waiter : FloorStaff, AbstractWaiter2 {
+#include "FloorStaff.h"
+#include "Table.h"
+#include "HeadChef.h"
 
+#include <string>
+
+class Waiter : public FloorStaff {
 private:
-	bool observerState;
-	Colleague* colleagueList;
-	int waiterID;
+    std::string waiterName;
+    Table* table;
+    HeadChef* headChef;
 
 public:
-	void observeTable();
-
-	int getWaiterID();
-
-	void setWaiterID(int waiterID);
+    Waiter(std::string waiterName, Table* table, HeadChef* headChef);
+    ~Waiter();
+    void setWaiterName(std::string waiterName);
+    std::string getWaiterName();
+    void setTable(Table* table);
+    void setHeadChef(HeadChef* headChef);
+    void deliverOrder();
+    void deliverMeal();
 };
+
 
 #endif
