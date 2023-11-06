@@ -7,6 +7,9 @@
  */
 class Water : public Drink {
 	public:
+	/**
+     	* \brief Water constructor  
+     	*/
 		Water();
 		void print();
 		virtual ~Water();
