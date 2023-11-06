@@ -18,7 +18,7 @@ public:
 	void print();
 	/**
      	* \brief Juice destructor  
-     	*
+     	*/
 	virtual ~Juice(); 
 };
 
