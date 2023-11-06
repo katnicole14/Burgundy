@@ -4,7 +4,7 @@
 
 class SoftDrink : public Drink {
 	public:
-	   const float price = 22.50;
+	  
 		SoftDrink();
 		void print();
 		virtual ~SoftDrink();

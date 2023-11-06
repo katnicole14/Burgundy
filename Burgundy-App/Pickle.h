@@ -5,7 +5,7 @@
 class Pickle :public Ingredient {
 
 	public:
-	     const float price = 0.78;
+	
 		Pickle();
 		virtual ~Pickle();
 };

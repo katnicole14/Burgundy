@@ -5,7 +5,7 @@
 class Patty :public Ingredient {
 
 public:
-         const float price = 20;
+        
 		Patty();
 		virtual ~Patty();
 };

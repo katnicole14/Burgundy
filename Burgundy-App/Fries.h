@@ -4,7 +4,7 @@
 class Fries {
 
 public:
- const float price = 25;
+ 
 	Fries();
 	void print();
 };

@@ -14,12 +14,22 @@ void HeadChef::receiveOrder(Order *order) {
 
     std::cout << "Num customers: " << order->getNumCustomers() << std::endl;
     std::cout << "Table ID: " << order->getTableID() << std::endl;
-
+       std::vector<std::string> menuItems = {
+        "Bun",
+        "Pickle",
+        "Lettuce",
+        "Patty",
+        "Tomato",
+        "Fries",
+        "Sauce",
+        "Drink"
+    };
     int ***orders = order->getOrderArray();
     for (int i = 0; i < order->getNumCustomers(); ++i) {
-        std::cout << "Customer " << i << ": ";
+        std::cout << "Customer " << i+1 << ": ";
         for (int j = 0; j < 8; ++j) {
-            std::cout << *orders[i][j] << " ";
+            if(*orders[i][j] == 1)
+              std::cout <<menuItems[j]<<" ";
         }
         std::cout << std::endl;
     }
@@ -28,10 +38,9 @@ void HeadChef::receiveOrder(Order *order) {
 
     std::cout<<"start the chain "<<std::endl;
     handlerChain->addOrderItem(order);
-    std::cout<<"chain done"<<std::endl;
+    std::cout<<"chain done"<<std::endl <<std::endl;
     delete handlerChain;
     // delete order;
-    std::cout<<"end chain"<<std::endl;
 }
 
 Order* HeadChef::sendOutFinishedMeal() {
