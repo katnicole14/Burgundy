@@ -120,11 +120,12 @@ int*** Order::getOrderArray()
 	return orderArray;
 }
 
-
+/// makeMemento() intitializes and returns a Memento object
 Memento* Order::makeMemento(){
 	return new Memento(orderArray, tableID, numCustomers);
 }
 
+/// setMemento(Memento*) restores the state of the Order object to the state stored in the Memento
 void Order::setMemento(Memento* memento){
 	numCustomers = memento->state->getNumCustomers();
 	tableID = memento->state->getTableID();
