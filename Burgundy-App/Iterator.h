@@ -4,15 +4,14 @@
 #include "Customer.h"
 #include "Table.h"
 
+class Customer;
+class Table;
 /**
- * \brief Iterator pattern.
+ * \class Iterator
+ * \brief The class for the Iterator pattern.
  * The iterator is used to iterate through the customers seated at the table
  * The patterns has 3 functions available to the user. The functions are; first(), next(), getCurrentCustomer().
  */
-
-class Customer;
-class Table;
-
 class Iterator{
 private:
 	/**
@@ -25,6 +24,11 @@ private:
 	Customer* currentCustomer;
 
 public:
+/**
+* \brief The constructor for the Iterator class.
+* It sets the table member variable to the passed in Table paramater and initialises the currentCustomer to null.
+* \param A pointer to a table.
+*/
 	Iterator(Table*);
 /**
  * \brief The first() function must be called before any other function. 
