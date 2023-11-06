@@ -2,7 +2,7 @@
 #define FRIES_H
 	/**
 	 *\class Fries
-        * \brief adds responsibility to the Bun components  
+        * \brief creates fries object 
         */
 
 class Fries {
