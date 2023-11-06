@@ -1,7 +1,10 @@
 #ifndef STATE_O
 #define STATE_O
 
-
+/**
+* \class State
+* \brief This class holds the attributes that the Order class contains
+*/
 class State{
 private:
 	int*** orderArray;
