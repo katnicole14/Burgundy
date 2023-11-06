@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*! \brief Caretaker object.
+ * 		This object stores up to 5 Memento objects.
+ * 
+ * The objet has an array that holds 5 Mementos, once the array is full, the oldest Memento is deleted. 
+ * The Caretaker object throws a runtime_exception when an attempt is made to access a Memento, when no Mementos have been stored.
+ */
+
 Caretaker::Caretaker(){
 	size = 5;
 	storage = new Memento*[size];
@@ -13,6 +20,7 @@ Caretaker::Caretaker(){
 	}
 }
 
+/// This stores the Memento in to the array. 
 void Caretaker::storeMemento(Memento* memento){
 	if(isFull()){
 		for(int i = 0; i < size - 1; i++){
@@ -32,6 +40,7 @@ void Caretaker::storeMemento(Memento* memento){
 	return;
 }
 
+/// This gets the last Memento stored. If no Mementos are in the array, the function throws a runtime_exception. It is important to call this function in a try/catch block.
 Memento* Caretaker::getMemento(){
 	Memento* tmp = nullptr;
 	if(isFull()){
