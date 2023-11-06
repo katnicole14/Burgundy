@@ -16,6 +16,11 @@ private:
 public:
     Waiter(std::string waiterName, Table* table, HeadChef* headChef);
     ~Waiter();
+    /**
+     * \brief This function observe's the tables satisfaction.
+     *
+     * \param tables The vector of tables in the restaurant.
+     */
     void observeSatisfaction(std::vector<Table*>& tables);
     void setWaiterName(std::string waiterName);
     std::string getWaiterName();
