@@ -3,16 +3,16 @@
 
 #include "Memento.h"
 
+
+
+class Memento;
 /**
- *  \brief Caretaker object.
- * 		This object stores up to 5 Memento objects.
+ * \class Caretaker
+ * \brief Caretaker object. This object stores up to 5 Memento objects.
  * 
  * The objet has an array that holds 5 Mementos, once the array is full, the oldest Memento is deleted. 
  * The Caretaker object throws a runtime_exception when an attempt is made to access a Memento, when no Mementos have been stored.
  */
-
-class Memento;
-
 class Caretaker{
 private:
 	/**
@@ -33,11 +33,13 @@ private:
 	bool isEmpty();
 
 public:
-	/***
-	 * Constructor of the caretaker
+	/**
+	 * \brief Constructor of the Caretaker
 	 */
 	Caretaker();
-	
+	/**
+	 * \brief Destructor of the Caretaker
+	 */
 	~Caretaker();
 	/**
 	 * \brief This stores the Memento in to the array. 
