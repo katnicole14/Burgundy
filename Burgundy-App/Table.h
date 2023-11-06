@@ -5,6 +5,7 @@
 #include "Iterator.h"
 #include "Colleague.h"
 #include "Order.h"
+#include "Payment.h"
 #include <string>
 class TableState;
 class Iterator;
@@ -21,6 +22,7 @@ private:
 	int numCustomers;
 	Order* order;
 	float totalBill;
+	Payment* pay;
 
 public:
 	Table();
@@ -51,6 +53,8 @@ public:
     void setBill();	
 
     	//setters
+		void setPayment(Payment* order);
+		void settleBill();
     	void setTableID(int tableID);
     	void setNumCustomers(int numCustomers);
     	void setAvailableSeats(int availableSeats);

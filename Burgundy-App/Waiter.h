@@ -23,6 +23,7 @@ public:
     void setWaiterName(std::string waiterName);
     std::string getWaiterName();
     void setTable(Table* table);
+     Table * getTable();
     void setHeadChef(HeadChef* headChef);
     void deliverOrder();
     void deliverMeal();

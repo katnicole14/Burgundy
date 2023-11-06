@@ -17,6 +17,10 @@
 #include "SauceChef.h"
 #include "DrinksChef.h"
 #include "BurgandyRestaurant.h"
+#include "Payment.h"
+#include "Tab.h"
+#include "SplitBlill.h"
+#include "OneBill.h"
 #include <iostream>
 #include <vector>  
 
@@ -58,7 +62,20 @@ int main(){
     std::vector<Waiter*> waiters;
     ConcreteBuilder builder;
     Manager managers(&builder);
-    
+     BurgandyRestaurant* burgundy = new BurgandyRestaurant();
+     std::vector<Table*> tablelist;
+
+// Manager* managerA = &manager;
+// HeadChef* headChefA = &chef;
+// Waiter* w = waiter ;
+
+// tablelist.push_back(table1);
+
+// //Attach Observsers to Restaurant
+// burgundy->attachObserver(managerA);
+// burgundy->attachObserver(headChefA);
+// burgundy->attachObserver(w);
+// burgundy->notify(tablelist);
 
         std::cout <<"============================================================"<<std::endl;
     std::cout <<"WELCOME TO BURGANDY RESTAURANT" << std::endl;
@@ -72,7 +89,8 @@ int main(){
     
     managers.construct(customers);
     Table * table = builder.getTables()[builder.getTables().size()-1] ;
-    Waiter *waiter = new Waiter("Waiter 1", table, &chef);
+     tablelist.push_back(table);
+    Waiter *waiter = new Waiter("Waiter", table, &chef);
     waiters.push_back(waiter);
      
      std::cout <<"Manager assigning a waiter to a customer"<<std::endl;
@@ -102,10 +120,11 @@ for (int k = 0; k < customers; k++){
     std::cout <<"CUSTOMER " << k+1 <<std::endl;
       std::vector<int> userChoices(menuItems.size(), 0); // Initialize choices with 0 for "no"
     userChoices[0] = 1; // Set the bun to "yes" by default
+   
     tableCustomers[k]->setAmount(prices[0]);
     // Display the menu and prompt the user for choices
-
-    for (int i = 1; i < menuItems.size(); i++) {
+    int size =menuItems.size();
+    for (int i = 1; i < size; i++) {
         std::cout << "Do you want " << menuItems[i] << "? (1 for yes, 0 for no): ";
         int choice;
         std::cin >> choice;
@@ -123,13 +142,13 @@ for (int k = 0; k < customers; k++){
 
     // Display the user's choices
     std::cout << "Your choices are:" << std::endl;
-    for (int i = 0; i < menuItems.size(); i++) {
+    for (int i = 0; i < size; i++) {
         std::cout << menuItems[i] << ": " << (userChoices[i] ? "Yes" : "No") << std::endl;
     }
-    
+    int menuSize = userChoices.size();
         int order[8];   
       for (int i = 0; i < 8; i++) {
-    if (i < userChoices.size()) {
+    if (i < menuSize) {
         order[i] = userChoices[i];
     }
         }
@@ -144,6 +163,7 @@ for (int k = 0; k < customers; k++){
     std ::cout << "1. YES"<<std::endl; 
     std ::cout << "2. No"<<std::endl;
     int choice ;
+    std::cout << "Enter your choice:";
     std ::cin >>choice ;
      std ::cout << std::endl;
      
@@ -153,112 +173,236 @@ for (int k = 0; k < customers; k++){
      waiter->deliverMeal();
 
 
-   std::cout << "Switch To : " << std::endl;
-   std ::cout << "1.MANAGER: " << std::endl;
-   std ::cout << "2.Customers: " << std::endl;
-   std ::cout << "3.Waiter: " << std::endl;
 
+    std::cout << "Switch To :" << std::endl;
+    std::cout << "1. MANAGER" << std::endl;
+    std::cout << "2. Customers" << std::endl;
+    std::cout << "3. Waiter" << std::endl;
 
+    std::cout << "Enter your choice: ";
+    std::cin >> choice;
 
- 
+    switch (choice) {
+        case 1:
+            std::cout << "You selected MANAGER." << std::endl;
+            std::cout << "1. Observe table" << std::endl;
+            std::cout << "2. New customers need a table" << std::endl;
+
+            int managerChoice;
+            std::cout << "Enter your choice: ";
+            std::cin >> managerChoice;
+
+            switch (managerChoice) {
+                case 1:
+                    std::cout << "Manager: Observing tables." << std::endl;
+                         burgundy->attachObserver(&managers);
+                         burgundy->attachObserver(&chef);
+                         burgundy->attachObserver(waiter);
+                         burgundy->notify(tablelist);
+                    break;
+                case 2:
+                    std::cout << "Manager: Assigning a table to new customers." << std::endl;
+                    // Add code for assigning tables to new customers
+                    break;
+                default:
+                    std::cout << "Invalid choice for the Manager." << std::endl;
+            }
+            break;
+        case 2:
+            std::cout << "You selected Customers." << std::endl;
+            std::cout << "1. Ready to pay" << std::endl;
+            std::cout << "2. Satisfaction" << std::endl;
+
+            int customerChoice;
+            std::cout << "Enter your choice: ";
+            std::cin >> customerChoice;
+            int tableChoice;
+
+            std::cout << "ENTER TABLE NUMBER" << std::endl;
+            std::cin>>tableChoice;
+               Table * table1=  builder.getTableWithID(tableChoice);
+            switch (customerChoice) {
+                case 1:
+                     
+                    std::cout << "Customer: Ready to pay." << std::endl;
+                    std::cout << "Total amount: R " << table1->getBill() << std::endl;
+                    std::cout << "Payment option." << std::endl;
+                    std::cout << "1.Settle Tab Later." << std::endl;
+                    std::cout << "2.One Bill." << std::endl;
+                    std::cout << "3.Split bill." << std::endl;
+                    //===============================================
+                      int payment;
+                        std::cout << "Enter your choice: ";
+                        std::cin >> payment;
+
+                switch (payment) {
+                    case 1:
+                        std::cout << "Settle Tab later" << std::endl;
+                     
+                        table1->setPayment(new Tab());
+                         std::cout << "Enter waiter Tip percentage :" << std::endl;
+                          int tip;
+                          std::cin>>tip ;
+                        //   table1->changeState();
+                        
+                       break;
+                    // case 2:
+                    // std::cout << "ONE BILL." << std::endl;
+                    //  Table * table1=  builder.getTableWithID(tableChoice);
+                    //     table1->setPayment(new OneBill());
+                    //   table1->changeState();
+                    // int tip;
+                    //       std::cin>>tip ;
+                        
+                    // break;
+                    // case 3:
+                    
+                   //  Table * table1=  builder.getTableWithID(tableChoice);
+                    //     table1->setPayment(new SplitBill());
+                             //table1->changeState();
+                        //      int tip;
+                        //   std::cin>>tip ;
+                    // break;
+
+                    // default:
+                    //     std::cout << "Invalid choice for PAYMENT." << std::endl;
+            }
+              break;      
+
+                case 2:
+                    std::cout << "Customer: Expressing satisfaction." << std::endl;
+                    std::cout<< "ARE YOU SATISFIED WITH THE SERVICE AND FOOD ?"<<std::endl;
+                    std::cout<< "1.Yes" << std::endl;
+                    std::cout<< "2.No" << std::endl;
+                    std::cin >> choice;
+                            switch (choice){
+                            
+                            case 1: 
+                                table1->setTableSatisfaction(true);
+                                break;
+                              case 2: 
+                                table1->setTableSatisfaction(false);
+                                break;
+                            
+                            default:
+                                break;
+                            }
+                              
+                    break;
+                default:
+                    std::cout << "Invalid choice for Customers." << std::endl;
+            }
+            break;
+        // case 3:
+        //     std::cout << "You selected Waiter." << std::endl;
+            // std::cout << "1. Observe table." << std::endl;
+
+            // int waiterChoice;
+            // std::cout << "Enter your choice: ";
+            // std::cin >> waiterChoice;
+
+            // switch (waiterChoice) {
+            //     case 1:
+            //         std::cout << "Waiter: Observing tables." << std::endl;
+            //         // Add waiter observation code here
+            //         break;
+            //     default:
+            //         std::cout << "Invalid choice for Waiter." << std::endl;
+            // }
+        //     // break;
+        // default:
+        //     std::cout << "Invalid choice." << std::endl;
+    }
 
     return 0;
 }
 
 
-//===============================Final production function =================
-void final(Manager& manager , std::vector<Waiter*>&waiter , HeadChef& chef, ConcreteBuilder& builder){
 
-
-
- 
-    
-}
- void ManageFunction(Manager & manager ,std::vector<Waiter*>& waiters ,HeadChef &chef, ConcreteBuilder& builder){
-    std::cout <<"Enter number of customer: ";
-    int customers;
-    std::cin >>customers;
+//  void ManageFunction(Manager & manager ,std::vector<Waiter*>& waiters ,HeadChef &chef, ConcreteBuilder& builder){
+//     std::cout <<"Enter number of customer: ";
+//     int customers;
+//     std::cin >>customers;
     
     
-    manager.construct(customers);
-    Table * table = builder.getTables()[builder.getTables().size()-1] ;
-    Waiter *waiter = new Waiter("Waiter 1", table, &chef);
-    waiters.push_back(waiter);
+//     manager.construct(customers);
+//     Table * table = builder.getTables()[builder.getTables().size()-1] ;
+//     Waiter *waiter = new Waiter("Waiter 1", table, &chef);
+//     waiters.push_back(waiter);
      
-     std::cout <<"Manager assigning a waiter to a customer"<<std::endl;
-        Customer** tableCustomers = table->getCustomers();
-    // Table* table1 = builder.getTableWithID(1);
-    // int table1ID = table1->getTableID();
+//      std::cout <<"Manager assigning a waiter to a customer"<<std::endl;
+//         Customer** tableCustomers = table->getCustomers();
+//     // Table* table1 = builder.getTableWithID(1);
+//     // int table1ID = table1->getTableID();
    
-    // int table1AvailableSeats = table1->getAvailableSeats(); 
+//     // int table1AvailableSeats = table1->getAvailableSeats(); 
 
 
-    std::vector<std::string> menuItems = {
-        "Bun",
-        "Pickle",
-        "Lettuce",
-        "Patty",
-        "Tomato",
-        "Fries",
-        "Sauce",
-        "Drink"
-    };
+//     std::vector<std::string> menuItems = {
+//         "Bun",
+//         "Pickle",
+//         "Lettuce",
+//         "Patty",
+//         "Tomato",
+//         "Fries",
+//         "Sauce",
+//         "Drink"
+//     };
 
-       float prices[8] = {2, 0.78, 1.75, 20, 1.64, 25, 0, 22.50};
+//        float prices[8] = {2, 0.78, 1.75, 20, 1.64, 25, 0, 22.50};
 
-std:: cout << "====================Menu========================="<<std::endl;
-for (int k = 0; k < customers; k++){
+// std:: cout << "====================Menu========================="<<std::endl;
+// for (int k = 0; k < customers; k++){
 
-    std::cout <<"CUSTOMER " << k+1 <<std::endl;
-      std::vector<int> userChoices(menuItems.size(), 0); // Initialize choices with 0 for "no"
-    userChoices[0] = 1; // Set the bun to "yes" by default
-    tableCustomers[k]->setAmount(prices[0]);
-    // Display the menu and prompt the user for choices
+//     std::cout <<"CUSTOMER " << k+1 <<std::endl;
+//       std::vector<int> userChoices(menuItems.size(), 0); // Initialize choices with 0 for "no"
+//     userChoices[0] = 1; // Set the bun to "yes" by default
+//     tableCustomers[k]->setAmount(prices[0]);
+//     // Display the menu and prompt the user for choices
 
-    for (int i = 1; i < menuItems.size(); i++) {
-        std::cout << "Do you want " << menuItems[i] << "? (1 for yes, 0 for no): ";
-        int choice;
-        std::cin >> choice;
+//     for (int i = 1; i < menuItems.size(); i++) {
+//         std::cout << "Do you want " << menuItems[i] << "? (1 for yes, 0 for no): ";
+//         int choice;
+//         std::cin >> choice;
 
-        if (choice == 0 || choice == 1) {
-            userChoices[i] = choice;
-            if(userChoices[i] == 1){
-               tableCustomers[k]->setAmount(prices[i]);
-            }
-        } else {
-            std::cout << "Invalid choice. Please enter 1 for yes or 0 for no." << std::endl;
-            i--; // Re-prompt for the same item
-        }
-    }
+//         if (choice == 0 || choice == 1) {
+//             userChoices[i] = choice;
+//             if(userChoices[i] == 1){
+//                tableCustomers[k]->setAmount(prices[i]);
+//             }
+//         } else {
+//             std::cout << "Invalid choice. Please enter 1 for yes or 0 for no." << std::endl;
+//             i--; // Re-prompt for the same item
+//         }
+//     }
 
-    // Display the user's choices
-    std::cout << "Your choices are:" << std::endl;
-    for (int i = 0; i < menuItems.size(); i++) {
-        std::cout << menuItems[i] << ": " << (userChoices[i] ? "Yes" : "No") << std::endl;
-    }
+//     // Display the user's choices
+//     std::cout << "Your choices are:" << std::endl;
+//     for (int i = 0; i < menuItems.size(); i++) {
+//         std::cout << menuItems[i] << ": " << (userChoices[i] ? "Yes" : "No") << std::endl;
+//     }
     
-        int order[8];   
-      for (int i = 0; i < 8; i++) {
-    if (i < userChoices.size()) {
-        order[i] = userChoices[i];
-    }
-        }
-      tableCustomers[k]->setOrder(order);
-      std::cout <<"PRICE: R " << tableCustomers[k]->getTotalAmount()<<std::endl;
+//         int order[8];   
+//       for (int i = 0; i < 8; i++) {
+//     if (i < userChoices.size()) {
+//         order[i] = userChoices[i];
+//     }
+//         }
+//       tableCustomers[k]->setOrder(order);
+//       std::cout <<"PRICE: R " << tableCustomers[k]->getTotalAmount()<<std::endl;
 
-}
+// }
 
-    table->placeOrders();
-   std::cout <<std::endl;
+//     table->placeOrders();
+//    std::cout <<std::endl;
      
-     waiter->deliverOrder();
-    
-    // waiter->deliverMeal();
+//      waiter->deliverOrder();
+//     waiter->deliverMeal();
 
 
  
    
- }
+//  }
 //=========================================================================
 
 void testOrders(){

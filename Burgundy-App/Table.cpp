@@ -40,6 +40,10 @@ void Table::setNumCustomers(int numCustomers) {
 int Table::getNumCustomers() {
     	return numCustomers;
 }
+void Table::setPayment(Payment* pay_){
+	pay = pay_;
+	pay->pay();
+}
 
 void Table::placeOrders() {
 	order->setNumCustomers(numCustomers);
@@ -133,4 +137,7 @@ float money = 0;
    }
    
 totalBill = money;
+}
+void Table::settleBill(){
+	totalBill = 0 ;
 }

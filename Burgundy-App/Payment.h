@@ -3,9 +3,8 @@
 
 class Payment {
 
-
 public:
-	void pay();
+	virtual void pay() = 0;
 };
 
 #endif

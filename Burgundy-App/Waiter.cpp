@@ -19,6 +19,9 @@ Waiter::Waiter(std::string waiterName, Table *table, HeadChef *headChef) {
 Waiter::~Waiter() {
 
 }
+ Table * Waiter:: getTable(){
+  return table;
+ }
 
 void Waiter::setWaiterName(std::string waiterName) {
     this->waiterName = waiterName;
