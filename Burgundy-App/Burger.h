@@ -1,7 +1,7 @@
 #ifndef BURGER_H
 #define BURGER_H
 /**
- * @brief The Burger interface defines the addingredient that can be altered by decorators.
+ * \brief The Burger interface defines the addingredient that can be altered by decorators.
  */
 class Burger {
 
