@@ -32,6 +32,10 @@ public:
 
     void setOrder(Order* order);
     Order* getOrder();
+	/**
+	 * \brief Observes the satisfaction of the tables taken in as input
+	 * \param tables The list of tables to be observed.
+	 */
     void observeSatisfaction(std::vector<Table*>& tables);
 
 };
