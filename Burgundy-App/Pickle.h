@@ -9,7 +9,13 @@
 class Pickle :public Ingredient {
 
 	public:
+	 /**
+     	* \brief Pickle constructor  
+     	*/
 		Pickle();
+	 /**
+     	* \brief Pickle destructor  
+     	*/
 		virtual ~Pickle();
 };
 
