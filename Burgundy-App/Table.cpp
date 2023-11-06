@@ -5,9 +5,7 @@
 #include "Occupied.h"
 
 Table::Table(){
-	tableID = 0;
 	customers = nullptr;
-	std::cout <<"Table is now occupied"<<std::endl;
 	state = new Occupied();
 }
 

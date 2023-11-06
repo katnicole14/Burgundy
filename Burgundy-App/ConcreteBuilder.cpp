@@ -28,7 +28,7 @@ void ConcreteBuilder::buildPart(int numCustomers) {
     table->setAvailableSeats(totalSeats);
     Customer** custArray = new Customer*[totalSeats];
 
-    std::cout << "Created new table with ID: " << table->getTableID() << ", Num Customers: " << table->getNumCustomers();// << std::endl;
+    std::cout << "table with ID: " << table->getTableID() << " is now occupied, with "<<table->getNumCustomers()<<" Customers" <<std::endl ;// << std::endl;
 
     Order* order = new Order(table->getNumCustomers(), table->getTableID());
     table->createOrder(order);

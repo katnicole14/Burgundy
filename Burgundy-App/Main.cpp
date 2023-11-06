@@ -27,17 +27,29 @@ void testObserver();
 void testOrders();
 void testAll();
 
+//================================final test================================
 
+  void ManageFunction(Manager& manager , std::vector<Waiter*>& waiter , HeadChef& chef , ConcreteBuilder& builder);
+void final(Manager& manager , std::vector<Waiter*>&waiter , HeadChef& chef, ConcreteBuilder& builder);
+
+
+
+  void CustomerService();
+  void KitchenView();
+//--------------------------------------------------------------------------
 int main(){
-testAll();
+    HeadChef chef;
+    std::vector<Waiter*> waiters;
+    ConcreteBuilder builder;
+    Manager managers(&builder);
+    final(managers , waiters ,chef , builder);
+ 
+//testAll();
 //     std::cout << "======================= MEMENTO =======================\n";
 //     testMemento();
 //     std::cout <<std::endl;
-
 //     std::cout << "======================= BUILDER  =======================\n";
-
-//    testBuilder();
-   
+//    testBuilder(); 
 // testObserver();
 // testOrders(); 
     //create a table 
@@ -49,7 +61,6 @@ testAll();
 // table->changeState();
 
 // std::cout <<std::endl <<std::endl;
-
 
 //===============================================
 //CUSTOMERS SETTING ORDERS
@@ -84,16 +95,7 @@ testAll();
 
 //===============================================
 //END OF CUSTOMERS SETTING ORDERS
-//===============================================
-    
-
-
-
-
-
-
-
-    
+//===============================================   
 //==========================================================
 // FLOOR STAFF OBSERVING RESTAURANT
 //==========================================================
@@ -141,6 +143,119 @@ FloorStaff* headChefA = new HeadChef(); */
 
     return 0;
 }
+
+
+//===============================Final production function =================
+void final(Manager& manager , std::vector<Waiter*>&waiter , HeadChef& chef, ConcreteBuilder& builder){
+    std::cout <<"============================================================"<<std::endl;
+    std::cout <<"WELCOME TO BURGANDY RESTAURANT" << std::endl;
+    std::cout <<"============================================================"<<std::endl;
+
+  
+
+    std::cout <<"Manager options: "<<std::endl;
+    ManageFunction(manager , waiter ,chef , builder);
+
+
+ 
+    
+}
+ void ManageFunction(Manager & manager ,std::vector<Waiter*>& waiters ,HeadChef &chef, ConcreteBuilder& builder){
+    std::cout <<"Enter number of customer: ";
+    int customers;
+    std::cin >>customers;
+    
+    
+    manager.construct(customers);
+    Table * table = builder.getTables()[builder.getTables().size()-1] ;
+    Waiter *waiter = new Waiter("Waiter 1", table, &chef);
+    waiters.push_back(waiter);
+     
+     std::cout <<"Manager assigning a waiter to a customer"<<std::endl;
+        Customer** tableCustomers = table->getCustomers();
+    // Table* table1 = builder.getTableWithID(1);
+    // int table1ID = table1->getTableID();
+   
+    // int table1AvailableSeats = table1->getAvailableSeats(); 
+
+
+    std::vector<std::string> menuItems = {
+        "Bun",
+        "Pickle",
+        "Lettuce",
+        "Patty",
+        "Tomato",
+        "Fries",
+        "Sauce",
+        "Drink"
+    };
+
+ 
+
+std:: cout << "====================Menu========================="<<std::endl;
+for (int k = 0; k < customers; k++){
+
+    std::cout <<"CUSTOMER " << k <<std::endl;
+      std::vector<int> userChoices(menuItems.size(), 0); // Initialize choices with 0 for "no"
+    userChoices[0] = 1; // Set the bun to "yes" by default
+
+    // Display the menu and prompt the user for choices
+
+    for (int i = 1; i < menuItems.size(); i++) {
+        std::cout << "Do you want " << menuItems[i] << "? (1 for yes, 0 for no): ";
+        int choice;
+        std::cin >> choice;
+
+        if (choice == 0 || choice == 1) {
+            userChoices[i] = choice;
+        } else {
+            std::cout << "Invalid choice. Please enter 1 for yes or 0 for no." << std::endl;
+            i--; // Re-prompt for the same item
+        }
+    }
+
+    // Display the user's choices
+    std::cout << "Your choices are:" << std::endl;
+    for (int i = 0; i < menuItems.size(); i++) {
+        std::cout << menuItems[i] << ": " << (userChoices[i] ? "Yes" : "No") << std::endl;
+    }
+    
+        int order[8];   
+      for (int i = 0; i < 8; i++) {
+    if (i < userChoices.size()) {
+        order[i] = userChoices[i];
+    }
+        }
+      tableCustomers[k]->setOrder(order);
+      std::cout <<"PRICE ";
+
+}
+    table->placeOrders();
+    waiter->deliverOrder();
+    
+    waiter->deliverMeal();
+
+
+    // int order1[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+    // int order2[8] = {3, 2, 6, 1, 6, 6, 4, 6};
+    // int order3[8] = {1, 3, 5, 4, 7, 8, 7, 1};
+    // int order4[8] = {1, 2, 3, 4, 5, 6, 7, 9};
+    // int order5[8] = {3, 2, 6, 1, 6, 6, 4, 0};
+    // int order6[8] = {1, 3, 5, 4, 7, 8, 7, 4};
+    // int order7[8] = {1, 2, 7, 4, 5, 6, 7, 2};
+
+     //table2Customers[0]->setOrder(order1);
+    // table2Customers[1]->setOrder(order2);
+    // table2Customers[2]->setOrder(order3);
+    // table2Customers[3]->setOrder(order4);
+    // table2Customers[4]->setOrder(order5);
+    // table2Customers[5]->setOrder(order6);
+    // table2Customers[6]->setOrder(order7);
+
+ 
+   
+ }
+//=========================================================================
 
 void testOrders(){
 
