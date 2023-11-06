@@ -217,10 +217,11 @@ for (int k = 0; k < customers; k++){
             std::cout << "Enter your choice: ";
             std::cin >> customerChoice;
             int tableChoice;
+            Table * table1;
 
             std::cout << "ENTER TABLE NUMBER" << std::endl;
             std::cin>>tableChoice;
-               Table * table1=  builder.getTableWithID(tableChoice);
+             table1=  builder.getTableWithID(tableChoice);
             switch (customerChoice) {
                 case 1:
                      
@@ -231,6 +232,7 @@ for (int k = 0; k < customers; k++){
                     std::cout << "2.One Bill." << std::endl;
                     std::cout << "3.Split bill." << std::endl;
                     //===============================================
+                      int tip;
                       int payment;
                         std::cout << "Enter your choice: ";
                         std::cin >> payment;
@@ -241,31 +243,31 @@ for (int k = 0; k < customers; k++){
                      
                         table1->setPayment(new Tab());
                          std::cout << "Enter waiter Tip percentage :" << std::endl;
-                          int tip;
+                         
                           std::cin>>tip ;
                         //   table1->changeState();
                         
                        break;
-                    // case 2:
-                    // std::cout << "ONE BILL." << std::endl;
-                    //  Table * table1=  builder.getTableWithID(tableChoice);
-                    //     table1->setPayment(new OneBill());
-                    //   table1->changeState();
-                    // int tip;
-                    //       std::cin>>tip ;
+                    case 2:
+                    std::cout << "ONE BILL." << std::endl;
+                     table1=  builder.getTableWithID(tableChoice);
+                        table1->setPayment(new OneBill());
+                      table1->changeState();
+                
+                          std::cin>>tip ;
                         
-                    // break;
-                    // case 3:
+                    break;
+                    case 3:
                     
-                   //  Table * table1=  builder.getTableWithID(tableChoice);
-                    //     table1->setPayment(new SplitBill());
-                             //table1->changeState();
-                        //      int tip;
-                        //   std::cin>>tip ;
-                    // break;
+                     table1=  builder.getTableWithID(tableChoice);
+                        table1->setPayment(new SplitBlill());
+                             table1->changeState();
+                             int tip;
+                          std::cin>>tip ;
+                    break;
 
-                    // default:
-                    //     std::cout << "Invalid choice for PAYMENT." << std::endl;
+                    default:
+                        std::cout << "Invalid choice for PAYMENT." << std::endl;
             }
               break;      
 
@@ -293,25 +295,25 @@ for (int k = 0; k < customers; k++){
                     std::cout << "Invalid choice for Customers." << std::endl;
             }
             break;
-        // case 3:
-        //     std::cout << "You selected Waiter." << std::endl;
-            // std::cout << "1. Observe table." << std::endl;
+        case 3:
+            std::cout << "You selected Waiter." << std::endl;
+            std::cout << "1. Observe table." << std::endl;
 
-            // int waiterChoice;
-            // std::cout << "Enter your choice: ";
-            // std::cin >> waiterChoice;
+            int waiterChoice;
+            std::cout << "Enter your choice: ";
+            std::cin >> waiterChoice;
 
-            // switch (waiterChoice) {
-            //     case 1:
-            //         std::cout << "Waiter: Observing tables." << std::endl;
-            //         // Add waiter observation code here
-            //         break;
-            //     default:
-            //         std::cout << "Invalid choice for Waiter." << std::endl;
-            // }
-        //     // break;
-        // default:
-        //     std::cout << "Invalid choice." << std::endl;
+            switch (waiterChoice) {
+                case 1:
+                    std::cout << "Waiter: Observing tables." << std::endl;
+                    // Add waiter observation code here
+                    break;
+                default:
+                    std::cout << "Invalid choice for Waiter." << std::endl;
+            }
+            // break;
+        default:
+            std::cout << "Invalid choice." << std::endl;
     }
 
     return 0;
