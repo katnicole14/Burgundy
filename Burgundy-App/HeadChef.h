@@ -15,17 +15,41 @@
 #include "Table.h"
 class Waiter;
 #include <iostream>
-
+/**
+* \class HeadChef
+* \brief The head chef will receive customer orders, send out finished meals and check table satisfaction.
+* The head chef will be able to receive customer orders from the waiter. They will then pass the orders to the rest of the chefs in the kitchen who will prepare the meal.
+* The head chef will then take the finished meal and send it to the waiter who will then take it to the table. The head chef will also monitor the satisfaction of the tables.
+*/
 class HeadChef : public Colleague, public FloorStaff,public KitchenStaff {
 private:
-    Order* order; // Maybe?
+	/**
+ 	* \var Order* order
+  	* \brief A reference to the order.
+   	* The order will contain customers' orders and also the finished meals.
+  	*/
+    Order* order;
 
 public:
+	/**
+ 	* \brief The constructor of the HeadChef class.
+  	*/ 
     HeadChef();
+	/**
+ 	* \brief The destructor of the HeadChef class.
+  	*/
     ~HeadChef();
+	/**
+ 	* \brief This method allows the head chef to receive orders from the waiter.
+  	* The head chef will receive orders from the waiter and will then pass it into the chain where the other chefs will prepare the meal.
+   	* \param order The orders received from the waiter.
+  	*/
     void receiveOrder(Order* order);
+	/**
+ 	* \brief This method simply returns the finished order to the waiter.
+  	* \return The finished meals.
+  	*/
     Order* sendOutFinishedMeal();
-    // void passToChain(Order* order)
 
     void placeOrders();
     void receiveFinishedMeal(Order* order);
