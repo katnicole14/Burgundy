@@ -6,7 +6,10 @@
 
 class Restaurant;
 class Table;
-
+/**
+* \class FloorStaff
+* \brief An abstract class. This class defines the observeSatisfaction function that child classes have to implement.
+*/
 class FloorStaff {
 protected:
 	/**
@@ -21,6 +24,9 @@ protected:
 	bool observerState;
 
 public:
+	/**
+ 	* \brief The constructor for the FloorStaff class.
+  	*/
 	FloorStaff();
 	/**
 	 * \brief Observes the satisfaction of the tables taken in as input
