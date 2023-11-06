@@ -4,7 +4,10 @@
 #include <vector>
 #include <iostream>
 class Table;
-
+/**
+* \class Restaurant
+* \brief This abstract class holds a vector of staffmembers that observe the entire restaurant
+*/
 class Restaurant {
 
 protected:
