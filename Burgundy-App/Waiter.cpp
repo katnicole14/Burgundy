@@ -8,9 +8,13 @@ Waiter::Waiter(std::string waiterName, Table *table, HeadChef *headChef) {
    float Waiter :: getTip(){
          return tip;
      }
-     
-    void Waiter :: setTip(float value){
-         tip = value;
+
+    void Waiter :: setTip(int value){
+        float val = value;
+        float bill = table->getBill();
+        float perc = 100;
+
+         tip = (val/perc) * bill;
      }
 Waiter::~Waiter() {
 

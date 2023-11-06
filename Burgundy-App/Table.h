@@ -20,6 +20,7 @@ private:
 	int availableSeats;
 	int numCustomers;
 	Order* order;
+	float totalBill;
 
 public:
 	Table();
@@ -38,15 +39,17 @@ public:
 	std::string getState();
 	int getNumCustomers();
 	Order* getCustomerOrders();
+	float getBill();
 	
 	//verbs
 	Iterator* createIterator();
 	void createOrder(Order* order);
 	void placeOrders();
-    	void receiveFinishedMeal(Order* order);
-    	void receiveOrder(Order* order);
-    	Order* sendOutFinishedMeal();
-    	
+    void receiveFinishedMeal(Order* order);
+    void receiveOrder(Order* order);
+    Order* sendOutFinishedMeal();
+    void setBill();	
+
     	//setters
     	void setTableID(int tableID);
     	void setNumCustomers(int numCustomers);

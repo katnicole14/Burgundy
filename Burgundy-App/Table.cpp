@@ -119,3 +119,20 @@ Order* Table::sendOutFinishedMeal() {
     // Do nothing
 	return nullptr;
 }
+float Table::getBill(){
+	this->setBill();
+	return totalBill;
+}
+
+void Table::setBill(){
+Iterator *it = new Iterator(this);
+
+float money = 0;
+   money= it->first()->getTotalAmount();
+   for (int i = 1; i < getNumCustomers(); i++)
+   {
+	   money += it->next()->getTotalAmount();
+   }
+   
+totalBill = money;
+}

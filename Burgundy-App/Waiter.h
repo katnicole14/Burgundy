@@ -16,7 +16,7 @@ private:
 
 public:
     float getTip();
-    void setTip(float value);
+    void setTip(int value);
     Waiter(std::string waiterName, Table* table, HeadChef* headChef);
     ~Waiter();
     void observeSatisfaction(std::vector<Table*>& tables);

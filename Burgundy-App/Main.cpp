@@ -367,6 +367,17 @@ void testAll(){
     table1Customers[4]->setOrder(order5);
     table1Customers[5]->setOrder(order6);
     table1Customers[6]->setOrder(order7);
+ 
+ std::cout<<"======================Iterator testing ==========="<<std::endl;
+    for (int i = 0; i < 7; i++) {
+    table1Customers[i]->setAmount(100);
+}
+std::cout<<table1->getBill() <<std::endl;
+waiter->setTip(10);
+std:: cout <<waiter->getTip()<<std::endl;
+
+
+std::cout <<"====================end of iterator ============="<<std::endl;
     std::cout <<std::endl;
     table1->placeOrders();
     std::cout <<std::endl;
