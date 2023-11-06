@@ -14,7 +14,7 @@ public:
 
     Manager(AbstractBuilder* b) : builder(b) {}
     void construct(int numCustomers);
-    /**
+	/**
 	 * \brief Observes the satisfaction of the tables taken in as input
 	 * \param tables The list of tables to be observed.
 	 */
