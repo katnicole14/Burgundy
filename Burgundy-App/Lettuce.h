@@ -7,7 +7,13 @@
  */
 class Lettuce :public Ingredient {
 	public:
+	 /**
+     	* \brief Lettuce constructor  
+     	*/
 	Lettuce();
+	/**
+     	* \brief Lettuce destructor  
+     	*/	
 	virtual ~Lettuce();
 };
 
