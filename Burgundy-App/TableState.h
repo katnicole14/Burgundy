@@ -2,7 +2,10 @@
 #define TABLESTATE_H
 #include <string>
 #include "Table.h"
-
+/**
+* \class TableState
+* \brief This abstract class will have children that represent the differnet states of the table
+*/
 class TableState
 {
 
