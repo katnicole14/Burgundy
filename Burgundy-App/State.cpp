@@ -3,6 +3,7 @@
 
 using namespace std;
 
+/// This saves the snapshot taken by the Memento.
 State::State(int*** orderArray_, int tableID_, int numCustomers_){
 	int numOptions = 8;
 	numCustomers = numCustomers_;
@@ -29,6 +30,7 @@ void State::printArrays(){
 	cout<< endl<< endl;
 }
 
+/// Returns the saved snapshot of the oders the customers at the table made.
 int*** State::getOrderArray(){
 	return orderArray;
 }
