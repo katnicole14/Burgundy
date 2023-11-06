@@ -1,7 +1,7 @@
 #ifndef BURGERINGRED_H
 #define BURGERINGRED_H
 /**
- * @brief The BurgerIngred Decorator base class follows the same interface as the Bun.
+ * \brief The BurgerIngred Decorator base class follows the same interface as the Bun.
  */
 class BurgerIngred {
 
