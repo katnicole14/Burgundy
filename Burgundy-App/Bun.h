@@ -10,7 +10,7 @@ class Bun : public Burger {
 
 public:
    /**
-     * \brief Definition of of the addition of burger ingredients
+     * \brief Definition of the addition of burger ingredients
      *
      * \param ingred The next Ingredient to be added
      */
