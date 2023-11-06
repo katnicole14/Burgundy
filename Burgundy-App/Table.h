@@ -15,6 +15,10 @@ private:
 	Customer** customers;
 	int numSeated;
     	int tableID;
+	/**
+	 * \var bool tableSatisfaction
+	 * \brief This variable stores the table's satisfactoin.
+	 */
 	bool tableSatisfaction;
 	TableState * state;
 	int availableSeats;
@@ -32,6 +36,10 @@ public:
 	Table* getClone();
     	int getAvailableSeats();
     	Customer** getCustomers();
+	/**
+	 * \brief This function gets the table's satisfaction.
+	 * \return The table's satisfaction.
+	 */
     	bool getTableSatisfaction();
 	int getSeatNumber();
 	int getTableID();
@@ -52,6 +60,11 @@ public:
     	void setNumCustomers(int numCustomers);
     	void setAvailableSeats(int availableSeats);
     	void setCustomers(Customer** customers);
+	/**
+	 * \brief This function sets table's satisfaction.
+  	 *
+	 * \param tableSatisfaction The table's satisfaction.
+	 */
     	void setTableSatisfaction(bool tableSatisfaction);
     	void setState(TableState * state);
 };
