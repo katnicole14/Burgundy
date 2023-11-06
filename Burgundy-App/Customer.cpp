@@ -4,6 +4,7 @@
 Customer::Customer(std::string customerName) {
     this->customerName = customerName;
     seatNumber= -1;
+    totalAmount = 0;
 }
 
 Customer::~Customer() {
@@ -30,4 +31,10 @@ int* Customer::getOrder() {
 
 std::string Customer::getCustomerName() {
     return customerName;
+}
+ void Customer:: setAmount(float total){
+   totalAmount += total;
+ }
+float Customer :: getTotalAmount(){
+return totalAmount;
 }

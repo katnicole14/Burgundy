@@ -9,6 +9,7 @@ private:
     std::string customerName;
     int order[8];
     int seatNumber;
+  float totalAmount;
 
 public:
     Customer(std::string customerName);
@@ -18,6 +19,9 @@ public:
     std::string getCustomerName();
 	int getSeatNumber();
 	void assignSeatNumber(int);
+    void setAmount(float total);
+    float getTotalAmount();
+
 };
 
 
