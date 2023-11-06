@@ -3,6 +3,10 @@
 #include "TableState.h"
 
 class Table;
+/**
+* \class Occupied
+* \brief This class indicates that the table is currently occupied
+*/
 class Occupied : public TableState {
 
   public :
