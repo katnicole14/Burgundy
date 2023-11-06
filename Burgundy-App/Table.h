@@ -21,7 +21,7 @@ private:
   	* \brief A list of customer objects that are seated at the table.
   	*/
 	Customer** customers;
-	int numSeated
+	int numSeated;
 	/**
  	* \var int tableID
   	* \brief A unique identifier for a table.
@@ -99,7 +99,10 @@ public:
 	 */
 	Order* getCustomerOrders();
 	
-	//verbs
+	/**
+	 * \brief The createIterator() function initializes and returns the newly created Iterator,
+	 * 	which will iterate through all the Customer objects seated at the table
+	 */
 	Iterator* createIterator();
 	/**
 	 * \brief This function sets the order object of the table.

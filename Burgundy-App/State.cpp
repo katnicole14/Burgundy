@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/// This saves the snapshot taken by the Memento.
+
 State::State(int*** orderArray_, int tableID_, int numCustomers_){
 	int numOptions = 8;
 	numCustomers = numCustomers_;
@@ -18,6 +18,20 @@ State::State(int*** orderArray_, int tableID_, int numCustomers_){
 	}
 }
 
+State::~State(){
+	int numOptions = 8;
+	for(int i = 0; i < numCustomers; i++)
+	{	
+		for(int j = 0; j < numOptions; j++){
+			if(orderArray[i][j] != nullptr){
+				delete orderArray[i][j];
+			}
+		}
+		delete []orderArray[i];
+	}
+	delete []orderArray;
+}
+
 void State::printArrays(){
 	int numOptions = 8;
 	for(int i = 0; i < numCustomers; i++){
@@ -30,7 +44,6 @@ void State::printArrays(){
 	cout<< endl<< endl;
 }
 
-/// Returns the saved snapshot of the oders the customers at the table made.
 int*** State::getOrderArray(){
 	return orderArray;
 }

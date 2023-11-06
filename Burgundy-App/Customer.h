@@ -47,7 +47,15 @@ public:
  	* \return The customer's name.
 	*/
     std::string getCustomerName();
+    /**
+     * \brief getSeatNumber() gets the position of the Customer object on the table. It returns an int representing their position.
+     */
     int getSeatNumber();
+    /**
+     * assignSeatNumber() assgins a Customer object their position on the table.
+     * NOTE: this value has to be set manually, a customer does not know their position when created. 
+     * Customer position defaults to -1.
+  	*/
     void assignSeatNumber(int);
 };
 

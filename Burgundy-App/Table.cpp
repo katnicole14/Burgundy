@@ -11,7 +11,6 @@ Table::Table(){
 	state = new Occupied();
 }
 
-/// The createIterator() function initializes and returns the newly created Iterator, which will iterate through all the Customer objects seated at the table
 Iterator* Table::createIterator(){
 	return new Iterator(this);
 }
