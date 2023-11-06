@@ -8,7 +8,13 @@
 class Patty :public Ingredient {
 
 public:
+	 /**
+     	* \brief Patty constructor  
+     	*/
 		Patty();
+	 /**
+     	* \brief Patty destructor  
+     	*/
 		virtual ~Patty();
 };
 
