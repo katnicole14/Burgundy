@@ -11,6 +11,7 @@ public:
 	/**
      	* \brief Fries constructor  
      	*/
+ 
 	Fries();
 	/**
      	* \brief prints out fries     

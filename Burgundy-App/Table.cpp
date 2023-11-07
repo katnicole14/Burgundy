@@ -5,9 +5,7 @@
 #include "Occupied.h"
 
 Table::Table(){
-	tableID = 0;
 	customers = nullptr;
-	std::cout <<"Table is now occupied"<<std::endl;
 	state = new Occupied();
 }
 
@@ -41,6 +39,10 @@ void Table::setNumCustomers(int numCustomers) {
 
 int Table::getNumCustomers() {
     	return numCustomers;
+}
+void Table::setPayment(Payment* pay_){
+	pay = pay_;
+	pay->pay();
 }
 
 void Table::placeOrders() {
@@ -118,4 +120,24 @@ void Table::receiveOrder(Order* order) {
 Order* Table::sendOutFinishedMeal() {
     // Do nothing
 	return nullptr;
+}
+float Table::getBill(){
+	this->setBill();
+	return totalBill;
+}
+
+void Table::setBill(){
+Iterator *it = new Iterator(this);
+
+float money = 0;
+   money= it->first()->getTotalAmount();
+   for (int i = 1; i < getNumCustomers(); i++)
+   {
+	   money += it->next()->getTotalAmount();
+   }
+   
+totalBill = money;
+}
+void Table::settleBill(){
+	totalBill = 0 ;
 }

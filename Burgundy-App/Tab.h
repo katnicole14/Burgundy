@@ -5,7 +5,8 @@
 * \class Tab
 * \brief This class is a strategy to pay the bill by opening a tab
 */ 
-class Tab : Payment {
+
+class Tab : public Payment {
 
 
 public:

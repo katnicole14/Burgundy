@@ -26,8 +26,6 @@
 
 //================================final test================================
 
-  void CustomerService();
-  void KitchenView();
 //--------------------------------------------------------------------------
 int main(){
     HeadChef chef;
@@ -74,6 +72,7 @@ int main(){
                 std::cout << "You selected MANAGER." << std::endl;
                 std::cout << "1. Observe table" << std::endl;
                 std::cout << "2. New customers need a table" << std::endl;
+
 
                 int managerChoice;
                 std::cout << "Enter your choice: ";
@@ -242,7 +241,7 @@ int main(){
                             table->placeOrders();
                         }
                         else{
-                            std::cout<< "Please Get a table by the manager please"<< std::xendl;
+                            std::cout<< "Please Get a table by the manager please"<< std::endl;
                             break;
                         }
                         std::cout <<std::endl;

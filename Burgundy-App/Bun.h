@@ -14,6 +14,7 @@ public:
      *
      * \param ingred The next Ingredient to be added
      */
+  
 	void addIngredient(Burger* ingred);
 };
 

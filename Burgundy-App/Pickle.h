@@ -12,6 +12,7 @@ class Pickle :public Ingredient {
 	 /**
      	* \brief Pickle constructor  
      	*/
+	
 		Pickle();
 	 /**
      	* \brief Pickle destructor  

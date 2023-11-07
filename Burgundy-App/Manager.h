@@ -32,6 +32,8 @@ public:
 	 * \param tables The list of tables to be observed.
 	 */
     void observeSatisfaction(std::vector<Table*>& tables);
+  
+
 };
 
 

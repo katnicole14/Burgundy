@@ -20,6 +20,7 @@ private:
 	*/
     int order[8];
     int seatNumber;
+  float totalAmount;
 
 public:
 	/**
@@ -56,7 +57,12 @@ public:
      * NOTE: this value has to be set manually, a customer does not know their position when created. 
      * Customer position defaults to -1.
   	*/
-    void assignSeatNumber(int);
+    // void assignSeatNumber(int);
+	//int getSeatNumber();
+	void assignSeatNumber(int);
+    void setAmount(float total);
+    float getTotalAmount();
+
 };
 
 

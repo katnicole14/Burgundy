@@ -24,3 +24,6 @@ void Manager::observeSatisfaction(std::vector<Table*>& tables) {
     }
 
 }
+
+
+ 

@@ -5,6 +5,7 @@
 #include "Iterator.h"
 #include "Colleague.h"
 #include "Order.h"
+#include "Payment.h"
 #include <string>
 class TableState;
 class Iterator;
@@ -49,6 +50,8 @@ private:
    	* This will store all the customers' orders and eventually their meals too.
   	*/
 	Order* order;
+	float totalBill;
+	Payment* pay;
 
 public:
 	/**
@@ -98,6 +101,7 @@ public:
 	 * \return The table's order object.
 	 */
 	Order* getCustomerOrders();
+	float getBill();
 	
 	/**
 	 * \brief The createIterator() function initializes and returns the newly created Iterator,
@@ -121,7 +125,11 @@ public:
     	void receiveFinishedMeal(Order* order);
     	void receiveOrder(Order* order);
     	Order* sendOutFinishedMeal();
-    	
+    	 void setBill();	
+
+    	//setters
+		void setPayment(Payment* order);
+		void settleBill();
     	//setters
 	/**
 	 * \brief This function sets the table's ID

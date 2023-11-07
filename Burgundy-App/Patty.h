@@ -11,6 +11,7 @@ public:
 	 /**
      	* \brief Patty constructor  
      	*/
+        
 		Patty();
 	 /**
      	* \brief Patty destructor  

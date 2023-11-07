@@ -30,6 +30,7 @@ private:
     * The waiter will pass customer orders to the head chef while also receiving the finished meals from the head chef.
     */
     HeadChef* headChef;
+    float tip ;
 
 public:
     /**
@@ -39,6 +40,8 @@ public:
     * \param table The table the customer will be serving.
     * \param headChef The head chef of the restaurant.
     */
+    float getTip();
+    void setTip(int value);
     Waiter(std::string waiterName, Table* table, HeadChef* headChef);
     /**
     * \brief The destructor of the waiter class.
@@ -69,6 +72,7 @@ public:
      * \brief This function sets the head chef of the restaurant.
      * \param headChef The head chef of the restaurant.
      */
+     Table * getTable();
     void setHeadChef(HeadChef* headChef);
     /**
      * \brief This function allows the waiter to deliver the customers' orders to the head chef.
