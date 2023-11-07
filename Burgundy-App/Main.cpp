@@ -242,7 +242,7 @@ int main(){
                             table->placeOrders();
                         }
                         else{
-                            std::cout<< "Please Get a table by the manager please"<< std::xendl;
+                            std::cout<< "Please Get a table by the manager please"<< std::endl;
                             break;
                         }
                         std::cout <<std::endl;
