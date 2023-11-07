@@ -50,6 +50,11 @@ int main(){
                                             "Fries",
                                             "Sauce",
                                             "Drink" };
+     std::vector<std::string> drinksItems = {
+                                            "juice",
+                                            "soft drink",
+                                            "water",
+                                            };
 
 
     std::cout << "============================================================" << std::endl;
@@ -204,11 +209,24 @@ int main(){
                             tableCustomers[k]->setAmount(prices[0]);
                             // Display the menu and prompt the user for choices
                             int size =menuItems.size();
+                            int drinkOpt = -1;
                             for (int i = 1; i < size; i++) {
                                 std::cout << "Do you want " << menuItems[i] << "? (1 for yes, 0 for no): ";
                                 int choice;
                                 std::cin >> choice;
+                                
+                              if(i == 7 && choice == 1){
 
+                                do{
+                                std::cout << "Do you want:" <<std::endl;
+                                std::cout << "1.Juice" <<std::endl;
+                                std::cout << "2.soft drink" <<std::endl;
+                                std::cout << "3.Water" <<std::endl;
+                                  std::cin >>drinkOpt ;
+                                   userChoices[i] = drinkOpt ;
+                                }while(drinkOpt<1 && drinkOpt >3);
+
+                              }
                                 if (choice == 0 || choice == 1) {
                                     userChoices[i] = choice;
                                     if(userChoices[i] == 1){
@@ -222,9 +240,13 @@ int main(){
 
                             // Display the user's choices
                             std::cout << "Your choices are:" << std::endl;
-                            for (int i = 0; i < size; i++) {
+                            for (int i = 0; i < size ; i++) {
                                 std::cout << menuItems[i] << ": " << (userChoices[i] ? "Yes" : "No") << std::endl;
                             }
+                            if(userChoices[7] == 1){
+                               std::cout << "Drink option: "<< drinksItems[drinkOpt-1]<<std::endl;
+                            }
+
                             int menuSize = userChoices.size();
                                 int order[8];   
                             for (int i = 0; i < 8; i++) {
