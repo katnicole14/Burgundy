@@ -1,14 +1,60 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Waiter.h"
+#include "Waiter.h"
 
-void Waiter::observeTable() {
-	// TODO - implement Waiter::observeTable
-	throw "Not yet implemented";
+Waiter::Waiter(std::string waiterName, Table *table, HeadChef *headChef) {
+    this->waiterName = waiterName;
+    this->table = table;
+    this->headChef = headChef;
+}
+   float Waiter :: getTip(){
+         return tip;
+     }
+
+    void Waiter :: setTip(int value){
+        float val = value;
+        float bill = table->getBill();
+        float perc = 100;
+
+         tip = (val/perc) * bill;
+     }
+Waiter::~Waiter() {
+
+}
+ Table * Waiter:: getTable(){
+  return table;
+ }
+
+void Waiter::setWaiterName(std::string waiterName) {
+    this->waiterName = waiterName;
 }
 
-int Waiter::getWaiterID() {
-	return this->waiterID;
+std::string Waiter::getWaiterName() {
+    return waiterName;
 }
 
-void Waiter::setWaiterID(int waiterID) {
-	this->waiterID = waiterID;
+void Waiter::setTable(Table *table) {
+    this->table = table;
+}
+
+void Waiter::setHeadChef(HeadChef *headChef) {
+    this->headChef = headChef;
+}
+
+void Waiter::deliverOrder() {
+    Order* order = table->getCustomerOrders();
+    headChef->receiveOrder(order);
+}
+
+void Waiter::deliverMeal() {
+    Order* order = headChef->sendOutFinishedMeal();
+    table->receiveFinishedMeal(order);
+}
+
+void Waiter::observeSatisfaction(std::vector<Table*>& tables) {
+
+	this->observerState = this->table->getTableSatisfaction();
+    if (observerState) {
+        std::cout << "Waiter Observer Result : Table " << this->table->getTableID() << " is satisfied" <<std::endl;
+    }
+    else 
+        std::cout << "Waiter Observer Result : Table " << this->table->getTableID() << " is not satisfied" <<std::endl;
 }

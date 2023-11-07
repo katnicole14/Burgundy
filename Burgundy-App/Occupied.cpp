@@ -1,10 +1,12 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Occupied.h"
+#include "Occupied.h"
+#include "BillPaid.h"
 
-void Occupied::changeTo() {
-	// TODO - implement Occupied::changeTo
-	throw "Not yet implemented";
+
+void Occupied:: changeTo(Table *c){
+	c->setState(new BillPaid());
+
 }
+std::string Occupied:: getState(){
+	return "Occupied";
 
-string Occupied::getState() {
-	return this->state;
 }

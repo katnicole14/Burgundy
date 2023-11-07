@@ -1,10 +1,11 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Dirty.h"
+#include "Dirty.h"
+#include "Unoccupied.h"
+void Dirty:: changeTo(Table *c){
+	
+	c->setState(new Unoccupied());
 
-void Dirty::changeTo() {
-	// TODO - implement Dirty::changeTo
-	throw "Not yet implemented";
 }
+std::string Dirty:: getState(){
+	return "dirty";
 
-string Dirty::getState() {
-	return this->state;
 }

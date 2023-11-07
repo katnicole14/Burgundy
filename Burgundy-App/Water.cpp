@@ -1,6 +1,15 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Water.h"
+#include "Water.h"
+#include<string>
+#include<iostream>
 
 Water::Water() {
-	// TODO - implement Water::Water
-	throw "Not yet implemented";
+	
+}
+
+void Water::print() {
+	std::cout<<"Water"<<std::endl;
+}
+
+Water::~Water() {
+	
 }

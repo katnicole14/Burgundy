@@ -1,11 +1,11 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\Memento.h"
+#include "Memento.h"
 
-vector<Ingredient*> Memento::getState() {
-	// TODO - implement Memento::getState
-	throw "Not yet implemented";
+using namespace std;
+
+Memento::Memento(int*** orderArray_, int tableID_, int numCustomers_){
+	state= new State(orderArray_, tableID_, numCustomers_);
 }
 
-void Memento::setState(vector<Ingredient*> menuState) {
-	// TODO - implement Memento::setState
-	throw "Not yet implemented";
+void Memento::printState(){
+	state->printArrays();
 }

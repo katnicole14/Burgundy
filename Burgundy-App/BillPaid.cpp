@@ -1,10 +1,11 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\BillPaid.h"
 
-void BillPaid::changeTo() {
-	// TODO - implement BillPaid::changeTo
-	throw "Not yet implemented";
+#include "BillPaid.h"
+#include "Dirty.h"
+void BillPaid:: changeTo(Table *c){
+	c->setState(new Dirty());
+
 }
+std::string BillPaid:: getState(){
+	return "BilledPaid";
 
-string BillPaid::getState() {
-	return this->state;
 }

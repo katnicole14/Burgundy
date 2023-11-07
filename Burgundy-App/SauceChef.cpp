@@ -1,16 +1,35 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\SauceChef.h"
+#include "SauceChef.h"
+#include<string>
+#include<iostream>
 
-Chef* SauceChef::getNext() {
-	// TODO - implement SauceChef::getNext
-	throw "Not yet implemented";
+SauceChef::SauceChef(Chef* next) : Chef(next) {}
+
+Chef* SauceChef::getNext()  {
+    return Chef::getNext();
 }
 
 void SauceChef::setNext(Chef* next) {
-	// TODO - implement SauceChef::setNext
-	throw "Not yet implemented";
+    Chef::setNext(next);
 }
 
-void SauceChef::addOrderItem(string item) {
-	// TODO - implement SauceChef::addOrderItem
-	throw "Not yet implemented";
+void SauceChef::addOrderItem(Order* order) {
+    std::cout << "Adding sauce" << std::endl;
+
+    int numCustomers = order->getNumCustomers();
+    BurgundySauce** sauce = new BurgundySauce*[numCustomers];
+
+    for (int i = 0; i < numCustomers; i++) {
+        // Check if sauce is wanted
+        if (*order->getOrderArray()[i][6] == 1) {
+            sauce[i] = new BurgundySauce();
+        } else {
+            sauce[i] = nullptr;
+        }
+    }
+
+    std::cout << "All sauces have been added. Get the drinks." << std::endl;
+
+    order->setSauce(sauce);
+    Chef::addOrderItem(order);
 }
+

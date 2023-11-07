@@ -1,6 +1,16 @@
-#include "..\..\..\Github desktop\Burgundy\Documention\Task-2\Complete Burgundy UML\SoftDrink.h"
+#include "SoftDrink.h"
+#include<string>
+#include<iostream>
 
 SoftDrink::SoftDrink() {
-	// TODO - implement SoftDrink::SoftDrink
-	throw "Not yet implemented";
+	
+}
+
+void SoftDrink::print()
+{
+	std::cout<<"SoftDrink"<<std::endl;
+}
+
+SoftDrink::~SoftDrink() {
+	
 }
